@@ -19,14 +19,16 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-
 import com.noober.background.drawable.DrawableFactory;
-import com.noober.background.view.Const;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
 
 public class BackgroundFactory implements LayoutInflater.Factory2 {
 
@@ -36,6 +38,7 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
     private static final Class<?>[] sConstructorSignature = new Class[]{Context.class, AttributeSet.class};
     private static final Object[] mConstructorArgs = new Object[2];
     private static final Map<String, Constructor<? extends View>> sConstructorMap = new ArrayMap<>();
+    private static final HashMap<String, HashMap<String, Method>> methodMap = new HashMap<>();
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
@@ -43,7 +46,6 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
         if(name.startsWith("com.noober.background.view")){
             return null;
         }
-//        name = switchBLViewToOriginal(name);
         View view = null;
 
         //防止与其他调用factory库冲突，例如字体、皮肤替换库，用已经设置的factory来创建view
@@ -56,45 +58,6 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
             view = mViewCreateFactory.onCreateView(name, context, attrs);
         }
         return setViewBackground(name, context, attrs, view);
-    }
-
-    private String switchBLViewToOriginal(String name) {
-        if(name.equals(Const.BLButton)){
-            name = "Button";
-        }else if(name.equals(Const.BLCheckBox)){
-            name = "CheckBox";
-        }else if(name.equals(Const.BLEditText)){
-            name = "EditText";
-        }else if(name.equals(Const.BLFrameLayout)){
-            name = "FrameLayout";
-        }else if(name.equals(Const.BLGridLayout)){
-            name = "GridLayout";
-        }else if(name.equals(Const.BLGridView)){
-            name = "GridView";
-        }else if(name.equals(Const.BLImageButton)){
-            name = "ImageButton";
-        }else if(name.equals(Const.BLImageView)){
-            name = "ImageView";
-        }else if(name.equals(Const.BLLinearLayout)){
-            name = "LinearLayout";
-        }else if(name.equals(Const.BLListView)){
-            name = "ListView";
-        }else if(name.equals(Const.BLRadioButton)){
-            name = "RadioButton";
-        }else if(name.equals(Const.BLRadioGroup)){
-            name = "RadioGroup";
-        }else if(name.equals(Const.BLRelativeLayout)){
-            name = "RelativeLayout";
-        }else if(name.equals(Const.BLScrollView)){
-            name = "ScrollView";
-        }else if(name.equals(Const.BLTextView)){
-            name = "TextView";
-        }else if(name.equals(Const.BLView)){
-            name = "View";
-        }else if(name.equals(Const.BLConstraintLayout)){
-            name = "android.support.constraint.ConstraintLayout";
-        }
-        return name;
     }
 
     @Nullable
@@ -121,6 +84,10 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
         TypedArray animTa = context.obtainStyledAttributes(attrs, R.styleable.bl_anim);
         TypedArray multiSelTa = context.obtainStyledAttributes(attrs, R.styleable.background_multi_selector);
         TypedArray multiTextTa = context.obtainStyledAttributes(attrs, R.styleable.background_multi_selector_text);
+        TypedArray selectorPre21Ta = null;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            selectorPre21Ta = context.obtainStyledAttributes(attrs, R.styleable.background_selector_pre_21);
+        }
 
         try {
             if (typedArray.getIndexCount() == 0 && selectorTa.getIndexCount() == 0 && pressTa.getIndexCount() == 0
@@ -160,8 +127,13 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
                 stateListDrawable = DrawableFactory.getMultiSelectorDrawable(context, multiSelTa, typedArray);
                 setBackground(stateListDrawable, view, typedArray);
             } else if(typedArray.getIndexCount() > 0){
-                drawable = DrawableFactory.getDrawable(typedArray);
-                setDrawable(drawable, view, otherTa, typedArray);
+                if (selectorPre21Ta != null && selectorPre21Ta.getIndexCount() > 0) {
+                    stateListDrawable = DrawableFactory.getSelectorPre21Drawable(typedArray);
+                    setDrawable(stateListDrawable, view, otherTa, typedArray);
+                } else {
+                    drawable = DrawableFactory.getDrawable(typedArray);
+                    setDrawable(drawable, view, otherTa, typedArray);
+                }
             } else if(animTa.getIndexCount() > 0){
                 AnimationDrawable animationDrawable = DrawableFactory.getAnimationDrawable(animTa);
                 setBackground(animationDrawable, view, typedArray);
@@ -195,6 +167,29 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
                 }
             }
 
+            if (otherTa.hasValue(R.styleable.bl_other_bl_function)) {
+                String methodName = otherTa.getString(R.styleable.bl_other_bl_function);
+                if (!TextUtils.isEmpty(methodName)) {
+                    final Context currentContext = view.getContext();
+                    final Class parentClass = currentContext.getClass();
+                    final Method method = getMethod(parentClass, methodName);
+                    if(method != null){
+                        view.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                try {
+                                    method.invoke(currentContext);
+                                } catch (IllegalAccessException e) {
+                                    e.printStackTrace();
+                                } catch (InvocationTargetException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+
             return view;
         } catch (Exception e) {
             e.printStackTrace();
@@ -209,8 +204,55 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
             animTa.recycle();
             multiSelTa.recycle();
             multiTextTa.recycle();
+            if (selectorPre21Ta != null) {
+                selectorPre21Ta.recycle();
+            }
         }
     }
+
+
+    private static Method getMethod(Class clazz, String methodName) {
+        Method method = null;
+        HashMap<String, Method> methodHashMap = methodMap.get(clazz.getCanonicalName());
+        if (methodHashMap != null) {
+            method = methodMap.get(clazz.getCanonicalName()).get(methodName);
+        } else {
+            methodHashMap = new HashMap<>();
+            methodMap.put(clazz.getCanonicalName(), methodHashMap);
+        }
+        if (method == null) {
+            method = findMethod(clazz, methodName);
+            if (method != null) {
+                methodHashMap.put(methodName, method);
+            }
+        }
+        return method;
+    }
+
+
+    private static Method findMethod(Class clazz, String methodName) {
+        Method method;
+        try {
+            method = clazz.getMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            method = findDeclaredMethod(clazz, methodName);
+        }
+        return method;
+    }
+
+    private static Method findDeclaredMethod(Class clazz, String methodName) {
+        Method method = null;
+        try {
+            method = clazz.getDeclaredMethod(methodName);
+            method.setAccessible(true);
+        } catch (NoSuchMethodException e) {
+            if (clazz.getSuperclass() != null) {
+                method = findDeclaredMethod(clazz.getSuperclass(), methodName);
+            }
+        }
+        return method;
+    }
+
 
     private static void setDrawable(Drawable drawable, View view, TypedArray otherTa, TypedArray typedArray){
 
