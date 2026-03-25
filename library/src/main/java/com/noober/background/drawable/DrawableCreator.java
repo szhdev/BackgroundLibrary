@@ -140,6 +140,10 @@ public class DrawableCreator {
         private Integer unFocusedTextColor;
         private int textColorCount;
         private float alpha = -1;
+        private float shadowSize = 0;
+        private int shadowColor = 0;
+        private float shadowOffsetX = 0;
+        private float shadowOffsetY = 0;
 
         private boolean hasSelectDrawable = false;
 
@@ -509,6 +513,34 @@ public class DrawableCreator {
 
         public Builder setBaseStateListDrawable(StateListDrawable baseStateListDrawable) {
             this.baseStateListDrawable = baseStateListDrawable;
+            return this;
+        }
+
+        public Builder setShadow(float size, int color, float offsetX, float offsetY) {
+            this.shadowSize = size;
+            this.shadowColor = color;
+            this.shadowOffsetX = offsetX;
+            this.shadowOffsetY = offsetY;
+            return this;
+        }
+
+        public Builder setShadowSize(float size) {
+            this.shadowSize = size;
+            return this;
+        }
+
+        public Builder setShadowColor(int color) {
+            this.shadowColor = color;
+            return this;
+        }
+
+        public Builder setShadowOffsetX(float offsetX) {
+            this.shadowOffsetX = offsetX;
+            return this;
+        }
+
+        public Builder setShadowOffsetY(float offsetY) {
+            this.shadowOffsetY = offsetY;
             return this;
         }
 
@@ -918,6 +950,235 @@ public class DrawableCreator {
             } else if (solidColor != null) {
                 drawable.setColor(solidColor);
             }
+
+            // Create shadow drawable if shadow is configured
+            if (shadowSize > 0 && shadowColor != 0) {
+                ShadowGradientDrawable shadowDrawable = new ShadowGradientDrawable();
+                shadowDrawable.setShape(shape.value);
+
+                if (cornersRadius != null) {
+                    shadowDrawable.setCornerRadius(cornersRadius);
+                }
+
+                if (cornersBottomLeftRadius != null && cornersBottomRightRadius != null &&
+                        cornersTopLeftRadius != null && cornersTopRightRadius != null) {
+                    float[] cornerRadius = new float[8];
+                    cornerRadius[0] = cornersTopLeftRadius;
+                    cornerRadius[1] = cornersTopLeftRadius;
+                    cornerRadius[2] = cornersTopRightRadius;
+                    cornerRadius[3] = cornersTopRightRadius;
+                    cornerRadius[4] = cornersBottomRightRadius;
+                    cornerRadius[5] = cornersBottomRightRadius;
+                    cornerRadius[6] = cornersBottomLeftRadius;
+                    cornerRadius[7] = cornersBottomLeftRadius;
+                    shadowDrawable.setCornerRadii(cornerRadius);
+                }
+
+                if (gradient == Gradient.Linear && gradientAngle != -1) {
+                    gradientAngle %= 360;
+                    if (gradientAngle % 45 == 0) {
+                        GradientDrawable.Orientation mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
+                        switch (gradientAngle) {
+                            case 0:
+                                mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
+                                break;
+                            case 45:
+                                mOrientation = GradientDrawable.Orientation.BL_TR;
+                                break;
+                            case 90:
+                                mOrientation = GradientDrawable.Orientation.BOTTOM_TOP;
+                                break;
+                            case 135:
+                                mOrientation = GradientDrawable.Orientation.BR_TL;
+                                break;
+                            case 180:
+                                mOrientation = GradientDrawable.Orientation.RIGHT_LEFT;
+                                break;
+                            case 225:
+                                mOrientation = GradientDrawable.Orientation.TR_BL;
+                                break;
+                            case 270:
+                                mOrientation = GradientDrawable.Orientation.TOP_BOTTOM;
+                                break;
+                            case 315:
+                                mOrientation = GradientDrawable.Orientation.TL_BR;
+                                break;
+                        }
+                        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            shadowDrawable.setOrientation(mOrientation);
+                        }
+
+                    }
+                }
+
+                if (gradientCenterX != null && gradientCenterY != null) {
+                    shadowDrawable.setGradientCenter(gradientCenterX, gradientCenterY);
+                }
+                if (gradientStartColor != null && gradientEndColor != null) {
+                    int[] colors;
+                    if (gradientCenterColor != null) {
+                        colors = new int[3];
+                        colors[0] = gradientStartColor;
+                        colors[1] = gradientCenterColor;
+                        colors[2] = gradientEndColor;
+                    } else {
+                        colors = new int[2];
+                        colors[0] = gradientStartColor;
+                        colors[1] = gradientEndColor;
+                    }
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        shadowDrawable.setColors(colors);
+                    }
+                }
+                if (gradientRadius != null) {
+                    shadowDrawable.setGradientRadius(gradientRadius);
+                }
+                shadowDrawable.setGradientType(gradient.value);
+                shadowDrawable.setUseLevel(useLevel);
+                if (hasSetPadding) {
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        shadowDrawable.setPadding(padding.left, padding.top, padding.right, padding.bottom);
+                    } else {
+                        try {
+                            Field paddingField = shadowDrawable.getClass().getDeclaredField("mPadding");
+                            paddingField.setAccessible(true);
+                            paddingField.set(shadowDrawable, padding);
+                        } catch (NoSuchFieldException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                if (sizeWidth != null && sizeHeight != null) {
+                    shadowDrawable.setSize(sizeWidth.intValue(), sizeHeight.intValue());
+                }
+
+                if (strokeWidth != null && strokeWidth > 0) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        int start = 0;
+                        ArrayList<Integer> stateList = new ArrayList<>();
+                        ArrayList<Integer> colorList = new ArrayList<>();
+                        if (pressedStrokeColor != null && unPressedStrokeColor != null) {
+                            stateList.add(android.R.attr.state_pressed);
+                            stateList.add(-android.R.attr.state_pressed);
+                            colorList.add(pressedStrokeColor);
+                            colorList.add(unPressedStrokeColor);
+                        }
+                        if (checkableStrokeColor != null && unCheckableStrokeColor != null) {
+                            stateList.add(android.R.attr.state_checkable);
+                            stateList.add(-android.R.attr.state_checkable);
+                            colorList.add(checkableStrokeColor);
+                            colorList.add(unCheckableStrokeColor);
+                        }
+                        if (checkedStrokeColor != null && unCheckedStrokeColor != null) {
+                            stateList.add(android.R.attr.state_checked);
+                            stateList.add(-android.R.attr.state_checked);
+                            colorList.add(checkedStrokeColor);
+                            colorList.add(unCheckedStrokeColor);
+                        }
+                        if (enabledStrokeColor != null && unEnabledStrokeColor != null) {
+                            stateList.add(android.R.attr.state_enabled);
+                            stateList.add(-android.R.attr.state_enabled);
+                            colorList.add(enabledStrokeColor);
+                            colorList.add(unEnabledStrokeColor);
+                        }
+                        if (selectedStrokeColor != null && unSelectedStrokeColor != null) {
+                            stateList.add(android.R.attr.state_selected);
+                            stateList.add(-android.R.attr.state_selected);
+                            colorList.add(selectedStrokeColor);
+                            colorList.add(unSelectedStrokeColor);
+                        }
+                        if (focusedStrokeColor != null && unFocusedStrokeColor != null) {
+                            stateList.add(android.R.attr.state_focused);
+                            stateList.add(-android.R.attr.state_focused);
+                            colorList.add(focusedStrokeColor);
+                            colorList.add(unFocusedStrokeColor);
+                        }
+                        if (stateList.size() > 0) {
+                            int[][] state = new int[stateList.size()][];
+                            int[] color = new int[stateList.size()];
+                            for (int iState : stateList) {
+                                state[start] = new int[]{iState};
+                                color[start] = colorList.get(start);
+                                start++;
+                            }
+
+                            ColorStateList colorStateList = new ColorStateList(state, color);
+                            shadowDrawable.setStroke(strokeWidth.intValue(), colorStateList, strokeDashWidth, strokeDashGap);
+                        } else if (strokeColor != null) {
+                            shadowDrawable.setStroke(strokeWidth.intValue(), strokeColor, strokeDashWidth, strokeDashGap);
+                        }
+                        stateList = null;
+                        colorList = null;
+                    } else if (strokeColor != null) {
+                        shadowDrawable.setStroke(strokeWidth.intValue(), strokeColor, strokeDashWidth, strokeDashGap);
+                    }
+                }
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    int start = 0;
+                    ArrayList<Integer> stateList = new ArrayList<>();
+                    ArrayList<Integer> colorList = new ArrayList<>();
+                    if (pressedSolidColor != null && unPressedSolidColor != null) {
+                        stateList.add(android.R.attr.state_pressed);
+                        stateList.add(-android.R.attr.state_pressed);
+                        colorList.add(pressedSolidColor);
+                        colorList.add(unPressedSolidColor);
+                    }
+                    if (checkableSolidColor != null && unCheckableSolidColor != null) {
+                        stateList.add(android.R.attr.state_checkable);
+                        stateList.add(-android.R.attr.state_checkable);
+                        colorList.add(checkableSolidColor);
+                        colorList.add(unCheckableSolidColor);
+                    }
+                    if (checkedSolidColor != null && unCheckedSolidColor != null) {
+                        stateList.add(android.R.attr.state_checked);
+                        stateList.add(-android.R.attr.state_checked);
+                        colorList.add(checkedSolidColor);
+                        colorList.add(unCheckedSolidColor);
+                    }
+                    if (enabledSolidColor != null && unEnabledSolidColor != null) {
+                        stateList.add(android.R.attr.state_enabled);
+                        stateList.add(-android.R.attr.state_enabled);
+                        colorList.add(enabledSolidColor);
+                        colorList.add(unEnabledSolidColor);
+                    }
+                    if (selectedSolidColor != null && unSelectedSolidColor != null) {
+                        stateList.add(android.R.attr.state_selected);
+                        stateList.add(-android.R.attr.state_selected);
+                        colorList.add(selectedSolidColor);
+                        colorList.add(unSelectedSolidColor);
+                    }
+                    if (focusedSolidColor != null && unFocusedSolidColor != null) {
+                        stateList.add(android.R.attr.state_focused);
+                        stateList.add(-android.R.attr.state_focused);
+                        colorList.add(focusedSolidColor);
+                        colorList.add(unFocusedSolidColor);
+                    }
+                    if (stateList.size() > 0) {
+                        int[][] state = new int[stateList.size()][];
+                        int[] color = new int[stateList.size()];
+                        for (int iState : stateList) {
+                            state[start] = new int[]{iState};
+                            color[start] = colorList.get(start);
+                            start++;
+                        }
+                        ColorStateList colorStateList = new ColorStateList(state, color);
+                        shadowDrawable.setColor(colorStateList);
+                    } else if (solidColor != null) {
+                        shadowDrawable.setColor(solidColor);
+                    }
+                    stateList = null;
+                    colorList = null;
+                } else if (solidColor != null) {
+                    shadowDrawable.setColor(solidColor);
+                }
+
+                shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
+                return shadowDrawable;
+            }
+
             return drawable;
         }
 
