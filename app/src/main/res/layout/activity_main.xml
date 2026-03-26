@@ -16,6 +16,184 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="======== 阴影效果演示 ========"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 基础阴影效果 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="1. 基础阴影（bl_shadow_color + bl_shadow_size）"
+            android:textSize="14sp" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="基础阴影"
+            android:textColor="@android:color/white"
+            app:bl_corners_radius="8dp"
+            app:bl_shadow_color="#40000000"
+            app:bl_shadow_size="10dp"
+            app:bl_solid_color="#4CAF50" />
+
+        <!-- 带偏移的阴影 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="2. 偏移阴影（bl_shadow_offsetX + bl_shadow_offsetY）"
+            android:textSize="14sp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="右下偏移阴影"
+            android:textColor="@android:color/white"
+            app:bl_corners_radius="8dp"
+            app:bl_shadow_color="#2196F3"
+            app:bl_shadow_offsetX="6dp"
+            app:bl_shadow_offsetY="6dp"
+            app:bl_shadow_size="10dp"
+            app:bl_solid_color="#2196F3" />
+
+        <!-- 左上偏移阴影 -->
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="左上偏移阴影"
+            android:textColor="@android:color/white"
+            app:bl_corners_radius="8dp"
+            app:bl_shadow_color="#FF5722"
+            app:bl_shadow_offsetX="-6dp"
+            app:bl_shadow_offsetY="-6dp"
+            app:bl_shadow_size="10dp"
+            app:bl_solid_color="#FF5722" />
+
+        <!-- 带阴影的圆角卡片 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="3. 圆角卡片阴影"
+            android:textSize="14sp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="圆角卡片 + 阴影"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:bl_corners_radius="99dp"
+            app:bl_shadow_color="#40000000"
+            app:bl_shadow_offsetY="2dp"
+            app:bl_shadow_size="6dp"
+            app:bl_solid_color="#FFFFFF"
+            app:bl_stroke_color="#E0E0E0"
+            app:bl_stroke_width="1dp" />
+        <!-- 单边圆角 + 阴影 -->
+        <com.noober.background.view.BLTextView
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="底部圆角 + 阴影"
+            android:textColor="@android:color/black"
+            app:bl_corners_bottomLeftRadius="12dp"
+            app:bl_corners_bottomRightRadius="12dp"
+            app:bl_shadow_color="#30000000"
+            app:bl_shadow_offsetY="3dp"
+            app:bl_shadow_size="8dp"
+            app:bl_solid_color="#FFFFFF" />
+
+        <!-- 双边圆角 + 阴影 -->
+        <com.noober.background.view.BLButton
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="左上右下圆角 + 阴影"
+            android:textColor="@android:color/white"
+            app:bl_corners_bottomRightRadius="16dp"
+            app:bl_corners_topLeftRadius="16dp"
+            app:bl_shadow_color="#40000000"
+            app:bl_shadow_offsetX="0dp"
+            app:bl_shadow_offsetY="0dp"
+            app:bl_shadow_size="10dp"
+            app:bl_solid_color="#FF5722" />
+
+        <!-- 椭圆形 + 阴影 -->
+        <com.noober.background.view.BLView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            app:bl_shadow_color="#6200EE"
+            app:bl_shadow_offsetY="5dp"
+            app:bl_shadow_size="12dp"
+            app:bl_shape="oval"
+            app:bl_solid_color="#FFC107" />
+
+        <!-- 彩色阴影 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="4. 动态设置阴影效果"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="代码中设置阴影效果"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="5. 边框阴影效果"
+            android:textSize="14sp" />
+
+        <com.noober.background.view.BLButton
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="边框阴影"
+            app:bl_corners_radius="8dp"
+            app:bl_shadow_color="#2196F3"
+            app:bl_shadow_size="10dp"
+            app:bl_stroke_color="#FF5722"
+            app:bl_stroke_width="1dp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="边框阴影"
+            app:bl_shadow_color="#2196F3"
+            app:bl_shadow_size="10dp"
+            app:bl_stroke_color="#FF5722"
+            app:bl_stroke_position="bottom"
+            app:bl_stroke_width="1dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="dasdasdads"
             app:bl_text_gradient_endColor="@android:color/holo_green_dark"
             app:bl_text_gradient_orientation="horizontal"
@@ -328,7 +506,7 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="0dp"
@@ -359,7 +537,7 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="0dp"
@@ -372,8 +550,8 @@
             app:bl_unpressed_color="#7CFC00" />
 
         <View
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             app:bl_shape="oval"
             app:bl_solid_color="#E3B666"
@@ -476,7 +654,7 @@
         <Button
             android:id="@+id/btn1"
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:background="@null"
             android:gravity="center"
@@ -534,7 +712,7 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="0dp"
@@ -551,7 +729,7 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="0dp"
@@ -562,7 +740,7 @@
         <Button
             android:id="@+id/btn_setEnable"
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="0dp"
@@ -617,7 +795,7 @@
         <Button
             android:id="@+id/btnTest3"
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:padding="0dp"

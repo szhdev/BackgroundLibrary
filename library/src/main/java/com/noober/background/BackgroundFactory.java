@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.noober.background.drawable.DrawableFactory;
+import com.noober.background.drawable.ShadowGradientDrawable;
 import com.noober.background.drawable.TextViewFactory;
 
 import java.lang.reflect.Constructor;
@@ -301,10 +302,24 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
             int bottom = 1 << 4;
             float width = typedArray.getDimension(R.styleable.background_bl_stroke_width, 0f);
             int position = typedArray.getInt(R.styleable.background_bl_stroke_position, 0);
-            float leftValue = hasStatus(position, left) ? 0 : -width;
-            float topValue = hasStatus(position, top) ? 0 : -width;
-            float rightValue = hasStatus(position, right) ? 0 : -width;
-            float bottomValue = hasStatus(position, bottom) ? 0 : -width;
+
+            // When ShadowGradientDrawable is present (shadow enabled), it already adds shadowRadius inset on all sides
+            // We need to increase the clip amount by shadowRadius to get the stroke completely outside the visible area
+            float extraInset = 0;
+            if (hasShadowGradientDrawable(drawable)) {
+                // ShadowGradientDrawable already insets content by shadowRadius, so we need extra inset to clip completely
+                if (typedArray.hasValue(R.styleable.background_bl_shadow_size)) {
+                    extraInset = typedArray.getDimension(R.styleable.background_bl_shadow_size, 0f);
+                }
+            }
+
+            // bl_stroke_position lists the sides where stroke should be VISIBLE
+            // If side flag is set → stroke is visible (0 inset)
+            // If side flag is not set → stroke is clipped (-(width + extraInset) inset)
+            float leftValue = hasStatus(position, left) ? 0 : -(width + extraInset);
+            float topValue = hasStatus(position, top) ? 0 : -(width + extraInset);
+            float rightValue = hasStatus(position, right) ? 0 : -(width + extraInset);
+            float bottomValue = hasStatus(position, bottom) ? 0 : -(width + extraInset);
             drawable = new LayerDrawable(new Drawable[]{drawable});
             ((LayerDrawable) drawable).setLayerInset(0, (int) leftValue, (int) topValue, (int) rightValue, (int) bottomValue);
         }
@@ -321,11 +336,40 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
             drawable.setAlpha((int) alpha);
         }
 
+        // 代码动态设置的话，有阴影的需要关闭硬件加速，否则虚线或者阴影在某些手机上面无法生效
+        // 检查 drawable 本身及其嵌套（比如 LayerDrawable 包装后）是否包含 ShadowGradientDrawable
+        if (hasShadowGradientDrawable(drawable)) {
+            view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackground(drawable);
         } else {
             view.setBackgroundDrawable(drawable);
         }
+    }
+
+    /**
+     * Recursively check if the drawable or any nested drawable contains a ShadowGradientDrawable
+     * This handles cases where ShadowGradientDrawable is wrapped inside LayerDrawable etc.
+     */
+    private static boolean hasShadowGradientDrawable(Drawable drawable) {
+        if (drawable instanceof ShadowGradientDrawable) {
+            return true;
+        }
+        if (drawable instanceof LayerDrawable) {
+            LayerDrawable layerDrawable = (LayerDrawable) drawable;
+            for (int i = 0; i < layerDrawable.getNumberOfLayers(); i++) {
+                if (hasShadowGradientDrawable(layerDrawable.getDrawable(i))) {
+                    return true;
+                }
+            }
+        }
+        if (drawable instanceof android.graphics.drawable.DrawableContainer) {
+            // Handle StateListDrawable etc. - though they shouldn't contain ShadowGradientDrawable
+            return false;
+        }
+        return false;
     }
 
     private static boolean hasStatus(int flag, int status) {

@@ -516,6 +516,17 @@ public class DrawableCreator {
             return this;
         }
 
+        /**
+         * Set shadow effect.
+         * <p>Note: Due to {@link android.graphics.BlurMaskFilter} limitation, you need disable hardware acceleration on the target view:
+         * <pre>
+         * view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+         * </pre>
+         * @param size shadow size (radius)
+         * @param color shadow color
+         * @param offsetX horizontal offset of shadow
+         * @param offsetY vertical offset of shadow
+         */
         public Builder setShadow(float size, int color, float offsetX, float offsetY) {
             this.shadowSize = size;
             this.shadowColor = color;

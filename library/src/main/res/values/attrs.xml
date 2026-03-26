@@ -300,6 +300,12 @@
             <flag name="right" value="8" />
             <flag name="bottom" value="16" />
         </attr>
+
+        <!-- 阴影相关属性 -->
+        <attr name="bl_shadow_size" format="dimension" />
+        <attr name="bl_shadow_color" format="color" />
+        <attr name="bl_shadow_offsetX" format="dimension" />
+        <attr name="bl_shadow_offsetY" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="background_selector_pre_21">

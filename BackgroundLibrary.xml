@@ -17,6 +17,30 @@
       <option name="XML" value="true" />
     </context>
   </template>
+  <template name="bl_shadow_size" value="app:bl_shadow_size=&quot;$value$&quot;" description="阴影大小" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_shadow_color" value="app:bl_shadow_color=&quot;$value$&quot;" description="阴影颜色" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_shadow_offsetX" value="app:bl_shadow_offsetX=&quot;$value$&quot;" description="阴影水平偏移" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_shadow_offsetY" value="app:bl_shadow_offsetY=&quot;$value$&quot;" description="阴影垂直偏移" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
   <template name="bl_corners_radius" value="app:bl_corners_radius=&quot;$value$&quot;" description="圆角宽度" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>

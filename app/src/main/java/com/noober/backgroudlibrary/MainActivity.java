@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.noober.background.BackgroundLibrary;
-import com.noober.background.annotation.BLUsed;
 import com.noober.background.drawable.DrawableCreator;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,6 +60,19 @@ public class MainActivity extends AppCompatActivity {
             btnTest2.setBackground(drawable2);
         }else {
             btnTest2.setBackgroundDrawable(drawable2);
+        }
+
+        TextView shapeTv = findViewById(R.id.tv_shadow);
+        Drawable shapeDrawable = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
+                .setSolidColor(Color.parseColor("#FF4081"))
+                .setStrokeColor(Color.parseColor("#4CAF50"))
+                .setStrokeWidth(dip2px(1))
+                .setShadow(dip2px(10), Color.parseColor("#2196F3"), dip2px(10), dip2px(10))
+                .build();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+            shapeTv.setBackground(shapeDrawable);
+        }else {
+            shapeTv.setBackgroundDrawable(shapeDrawable);
         }
 
         Button btnTest3 = findViewById(R.id.btnTest3);

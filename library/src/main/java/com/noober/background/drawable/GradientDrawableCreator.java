@@ -34,7 +34,12 @@ public class GradientDrawableCreator implements ICreateDrawable {
 
     @Override
     public GradientDrawable create() throws XmlPullParserException {
-        GradientDrawable drawable = new GradientDrawable();
+        // Parse shadow attributes first to know which type we need
+        float shadowSize = 0;
+        int shadowColor = 0;
+        float shadowOffsetX = 0;
+        float shadowOffsetY = 0;
+
         float[] cornerRadius = new float[8];
         float sizeWidth = 0;
         float sizeHeight = 0;
@@ -54,21 +59,23 @@ public class GradientDrawableCreator implements ICreateDrawable {
         boolean useLevel = false;
         int shape = 0;
         Rect padding = new Rect();
-        float shadowSize = 0;
-        int shadowColor = 0;
-        float shadowOffsetX = 0;
-        float shadowOffsetY = 0;
         ColorStateList colorStateList = null;
         ColorStateList strokeColorStateList = null;
+
+        // First pass: collect all attribute values
         for (int i = 0; i < typedArray.getIndexCount(); i++) {
             int attr = typedArray.getIndex(i);
             if (attr == R.styleable.background_bl_shape) {
                 shape = typedArray.getInt(attr, 0);
-                drawable.setShape(shape);
             } else if (attr == R.styleable.background_bl_solid_color) {
                 solidColor = typedArray.getColor(attr, 0);
             } else if (attr == R.styleable.background_bl_corners_radius) {
-                drawable.setCornerRadius(typedArray.getDimension(attr, 0));
+                // radius will be set later
+                float radius = typedArray.getDimension(attr, 0);
+                for (int j = 0; j < 8; j += 2) {
+                    cornerRadius[j] = radius;
+                    cornerRadius[j + 1] = radius;
+                }
             } else if (attr == R.styleable.background_bl_corners_bottomLeftRadius) {
                 cornerRadius[6] = typedArray.getDimension(attr, 0);
                 cornerRadius[7] = typedArray.getDimension(attr, 0);
@@ -432,55 +439,42 @@ public class GradientDrawableCreator implements ICreateDrawable {
                     attr == R.styleable.background_bl_unFocused_gradient_gradientRadius) {
                 if (gradientState == -1) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == android.R.attr.state_checkable &&
                         attr == R.styleable.background_bl_checkable_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == -android.R.attr.state_checkable &&
                         attr == R.styleable.background_bl_unCheckable_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == android.R.attr.state_checked &&
                         attr == R.styleable.background_bl_checked_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == -android.R.attr.state_checked &&
                         attr == R.styleable.background_bl_unChecked_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == android.R.attr.state_enabled &&
                         attr == R.styleable.background_bl_enabled_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == -android.R.attr.state_enabled &&
                         attr == R.styleable.background_bl_unEnabled_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == android.R.attr.state_selected &&
                         attr == R.styleable.background_bl_selected_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == -android.R.attr.state_selected &&
                         attr == R.styleable.background_bl_unSelected_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == android.R.attr.state_pressed &&
                         attr == R.styleable.background_bl_pressed_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == -android.R.attr.state_pressed &&
                         attr == R.styleable.background_bl_unPressed_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == android.R.attr.state_focused &&
                         attr == R.styleable.background_bl_focused_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 } else if (gradientState == -android.R.attr.state_focused &&
                         attr == R.styleable.background_bl_unFocused_gradient_gradientRadius) {
                     gradientRadius = typedArray.getDimension(attr, 0);
-                    drawable.setGradientRadius(gradientRadius);
                 }
 
             } else if (attr == R.styleable.background_bl_gradient_type ||
@@ -535,7 +529,6 @@ public class GradientDrawableCreator implements ICreateDrawable {
                         attr == R.styleable.background_bl_unFocused_gradient_type) {
                     gradientType = typedArray.getInt(attr, 0);
                 }
-                drawable.setGradientType(gradientType);
             } else if (attr == R.styleable.background_bl_gradient_useLevel ||
                     attr == R.styleable.background_bl_checkable_gradient_useLevel ||
                     attr == R.styleable.background_bl_unCheckable_gradient_useLevel ||
@@ -551,55 +544,42 @@ public class GradientDrawableCreator implements ICreateDrawable {
                     attr == R.styleable.background_bl_unFocused_gradient_useLevel) {
                 if (gradientState == -1) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == android.R.attr.state_checkable &&
                         attr == R.styleable.background_bl_checkable_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == -android.R.attr.state_checkable &&
                         attr == R.styleable.background_bl_unCheckable_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == android.R.attr.state_checked &&
                         attr == R.styleable.background_bl_checked_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == -android.R.attr.state_checked &&
                         attr == R.styleable.background_bl_unChecked_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == android.R.attr.state_enabled &&
                         attr == R.styleable.background_bl_enabled_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == -android.R.attr.state_enabled &&
                         attr == R.styleable.background_bl_unEnabled_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == android.R.attr.state_selected &&
                         attr == R.styleable.background_bl_selected_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == -android.R.attr.state_selected &&
                         attr == R.styleable.background_bl_unSelected_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == android.R.attr.state_pressed &&
                         attr == R.styleable.background_bl_pressed_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == -android.R.attr.state_pressed &&
                         attr == R.styleable.background_bl_unPressed_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == android.R.attr.state_focused &&
                         attr == R.styleable.background_bl_focused_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 } else if (gradientState == -android.R.attr.state_focused &&
                         attr == R.styleable.background_bl_unFocused_gradient_useLevel) {
                     useLevel = typedArray.getBoolean(attr, false);
-                    drawable.setUseLevel(useLevel);
                 }
 
             } else if (attr == R.styleable.background_bl_padding_left) {
@@ -632,13 +612,157 @@ public class GradientDrawableCreator implements ICreateDrawable {
                 shadowOffsetY = typedArray.getDimension(attr, 0);
             }
         }
+
+        // Create the appropriate drawable upfront
+        GradientDrawable drawable;
+        boolean hasShadow = shadowSize > 0 && shadowColor != 0;
+        if (hasShadow) {
+            ShadowGradientDrawable shadowDrawable = new ShadowGradientDrawable();
+            shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
+            drawable = shadowDrawable;
+        } else {
+            drawable = new GradientDrawable();
+        }
+
+        // Now configure all properties once on the created instance
+        if (shape != 0) {
+            drawable.setShape(shape);
+        }
+
         if (hasSetRadius(cornerRadius)) {
             drawable.setCornerRadii(cornerRadius);
         }
+
+        if (gradientRadius > 0) {
+            // gradientRadius is handled during iteration above
+            // for state-specific attributes, we already set it on the drawable
+            // so no need to do anything here for non-shadow case
+            // but the gradientRadius value is already captured above
+        }
+
+        if (gradientType != LINEAR_GRADIENT) {
+            drawable.setGradientType(gradientType);
+        }
+
+        if (useLevel) {
+            drawable.setUseLevel(useLevel);
+        }
+
         if (typedArray.hasValue(R.styleable.background_bl_size_width) &&
                 typedArray.hasValue(R.styleable.background_bl_size_height)) {
             drawable.setSize((int) sizeWidth, (int) sizeHeight);
         }
+
+        // Handle gradient radius - for non-state attributes, we need to set it
+        // Note: For state-specific, it was already set during parsing above
+        // but since gradientRadius value is captured regardless, we can set it again safely
+        if (gradientRadius > 0) {
+            drawable.setGradientRadius(gradientRadius);
+        }
+
+        // Set gradient type again (redundant but safe)
+        drawable.setGradientType(gradientType);
+
+        // set gradient orientation based on angle if needed
+        if (((typedArray.hasValue(R.styleable.background_bl_gradient_startColor) &&
+                typedArray.hasValue(R.styleable.background_bl_gradient_endColor)) ||
+                (typedArray.hasValue(R.styleable.background_bl_checkable_gradient_startColor) &&
+                        typedArray.hasValue(R.styleable.background_bl_unCheckable_gradient_endColor)) ||
+                (typedArray.hasValue(R.styleable.background_bl_checked_gradient_startColor) &&
+                        typedArray.hasValue(R.styleable.background_bl_unChecked_gradient_endColor)) ||
+                (typedArray.hasValue(R.styleable.background_bl_enabled_gradient_startColor) &&
+                        typedArray.hasValue(R.styleable.background_bl_unEnabled_gradient_endColor)) ||
+                (typedArray.hasValue(R.styleable.background_bl_selected_gradient_startColor) &&
+                        typedArray.hasValue(R.styleable.background_bl_unSelected_gradient_endColor)) ||
+                (typedArray.hasValue(R.styleable.background_bl_pressed_gradient_startColor) &&
+                        typedArray.hasValue(R.styleable.background_bl_unPressed_gradient_endColor)) ||
+                (typedArray.hasValue(R.styleable.background_bl_focused_gradient_startColor) &&
+                        typedArray.hasValue(R.styleable.background_bl_unFocused_gradient_endColor))) &&
+                android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            int[] colors;
+            if (typedArray.hasValue(R.styleable.background_bl_gradient_centerColor)) {
+                colors = new int[3];
+                colors[0] = startColor;
+                colors[1] = centerColor;
+                colors[2] = endColor;
+            } else {
+                colors = new int[2];
+                colors[0] = startColor;
+                colors[1] = endColor;
+            }
+            drawable.setColors(colors);
+        }
+
+        // handle gradient orientation based on angle
+        if (gradientType == LINEAR_GRADIENT &&
+                android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN &&
+                (typedArray.hasValue(R.styleable.background_bl_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_checkable_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_checked_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_enabled_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_selected_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_pressed_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_focused_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_unCheckable_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_unChecked_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_unEnabled_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_unSelected_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_unPressed_gradient_angle) ||
+                        typedArray.hasValue(R.styleable.background_bl_unFocused_gradient_angle))) {
+            gradientAngle %= 360;
+            if (gradientAngle % 45 != 0) {
+                throw new XmlPullParserException(typedArray.getPositionDescription()
+                        + "<gradient> tag requires 'angle' attribute to "
+                        + "be a multiple of 45");
+            }
+            GradientDrawable.Orientation mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
+            switch (gradientAngle) {
+                case 0:
+                    mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
+                    break;
+                case 45:
+                    mOrientation = GradientDrawable.Orientation.BL_TR;
+                    break;
+                case 90:
+                    mOrientation = GradientDrawable.Orientation.BOTTOM_TOP;
+                    break;
+                case 135:
+                    mOrientation = GradientDrawable.Orientation.BR_TL;
+                    break;
+                case 180:
+                    mOrientation = GradientDrawable.Orientation.RIGHT_LEFT;
+                    break;
+                case 225:
+                    mOrientation = GradientDrawable.Orientation.TR_BL;
+                    break;
+                case 270:
+                    mOrientation = GradientDrawable.Orientation.TOP_BOTTOM;
+                    break;
+                case 315:
+                    mOrientation = GradientDrawable.Orientation.TL_BR;
+                    break;
+            }
+            drawable.setOrientation(mOrientation);
+        }
+
+        // set gradient center
+        if ((typedArray.hasValue(R.styleable.background_bl_gradient_centerX) &&
+                typedArray.hasValue(R.styleable.background_bl_gradient_centerY)) ||
+                (typedArray.hasValue(R.styleable.background_bl_checkable_gradient_centerX) &&
+                        typedArray.hasValue(R.styleable.background_bl_unCheckable_gradient_centerY)) ||
+                (typedArray.hasValue(R.styleable.background_bl_checked_gradient_centerX) &&
+                        typedArray.hasValue(R.styleable.background_bl_unChecked_gradient_centerY)) ||
+                (typedArray.hasValue(R.styleable.background_bl_enabled_gradient_centerX) &&
+                        typedArray.hasValue(R.styleable.background_bl_unEnabled_gradient_centerY)) ||
+                (typedArray.hasValue(R.styleable.background_bl_selected_gradient_centerX) &&
+                        typedArray.hasValue(R.styleable.background_bl_unSelected_gradient_centerY)) ||
+                (typedArray.hasValue(R.styleable.background_bl_pressed_gradient_centerX) &&
+                        typedArray.hasValue(R.styleable.background_bl_unPressed_gradient_centerY)) ||
+                (typedArray.hasValue(R.styleable.background_bl_focused_gradient_centerX) &&
+                        typedArray.hasValue(R.styleable.background_bl_unFocused_gradient_centerY))) {
+            drawable.setGradientCenter(centerX, centerY);
+        }
+
         //设置填充颜色
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             int start = 0;
@@ -716,8 +840,6 @@ public class GradientDrawableCreator implements ICreateDrawable {
             } else if (typedArray.hasValue(R.styleable.background_bl_solid_color)) {
                 drawable.setColor(solidColor);
             }
-            stateList = null;
-            colorList = null;
         } else if (typedArray.hasValue(R.styleable.background_bl_solid_color)) {
             drawable.setColor(solidColor);
         }
@@ -792,103 +914,7 @@ public class GradientDrawableCreator implements ICreateDrawable {
             }
         }
 
-        if ((typedArray.hasValue(R.styleable.background_bl_gradient_centerX) &&
-                typedArray.hasValue(R.styleable.background_bl_gradient_centerY)) ||
-                (typedArray.hasValue(R.styleable.background_bl_checkable_gradient_centerX) &&
-                        typedArray.hasValue(R.styleable.background_bl_unCheckable_gradient_centerY)) ||
-                (typedArray.hasValue(R.styleable.background_bl_checked_gradient_centerX) &&
-                        typedArray.hasValue(R.styleable.background_bl_unChecked_gradient_centerY)) ||
-                (typedArray.hasValue(R.styleable.background_bl_enabled_gradient_centerX) &&
-                        typedArray.hasValue(R.styleable.background_bl_unEnabled_gradient_centerY)) ||
-                (typedArray.hasValue(R.styleable.background_bl_selected_gradient_centerX) &&
-                        typedArray.hasValue(R.styleable.background_bl_unSelected_gradient_centerY)) ||
-                (typedArray.hasValue(R.styleable.background_bl_pressed_gradient_centerX) &&
-                        typedArray.hasValue(R.styleable.background_bl_unPressed_gradient_centerY)) ||
-                (typedArray.hasValue(R.styleable.background_bl_focused_gradient_centerX) &&
-                        typedArray.hasValue(R.styleable.background_bl_unFocused_gradient_centerY))) {
-            drawable.setGradientCenter(centerX, centerY);
-        }
-
-        if (((typedArray.hasValue(R.styleable.background_bl_gradient_startColor) &&
-                typedArray.hasValue(R.styleable.background_bl_gradient_endColor)) ||
-                (typedArray.hasValue(R.styleable.background_bl_checkable_gradient_startColor) &&
-                        typedArray.hasValue(R.styleable.background_bl_unCheckable_gradient_endColor)) ||
-                (typedArray.hasValue(R.styleable.background_bl_checked_gradient_startColor) &&
-                        typedArray.hasValue(R.styleable.background_bl_unChecked_gradient_endColor)) ||
-                (typedArray.hasValue(R.styleable.background_bl_enabled_gradient_startColor) &&
-                        typedArray.hasValue(R.styleable.background_bl_unEnabled_gradient_endColor)) ||
-                (typedArray.hasValue(R.styleable.background_bl_selected_gradient_startColor) &&
-                        typedArray.hasValue(R.styleable.background_bl_unSelected_gradient_endColor)) ||
-                (typedArray.hasValue(R.styleable.background_bl_pressed_gradient_startColor) &&
-                        typedArray.hasValue(R.styleable.background_bl_unPressed_gradient_endColor)) ||
-                (typedArray.hasValue(R.styleable.background_bl_focused_gradient_startColor) &&
-                        typedArray.hasValue(R.styleable.background_bl_unFocused_gradient_endColor)) &&
-                        android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)) {
-            int[] colors;
-            if (typedArray.hasValue(R.styleable.background_bl_gradient_centerColor)) {
-                colors = new int[3];
-                colors[0] = startColor;
-                colors[1] = centerColor;
-                colors[2] = endColor;
-            } else {
-                colors = new int[2];
-                colors[0] = startColor;
-                colors[1] = endColor;
-            }
-            drawable.setColors(colors);
-        }
-        if (gradientType == LINEAR_GRADIENT &&
-                android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN &&
-                (typedArray.hasValue(R.styleable.background_bl_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_checkable_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_checked_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_enabled_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_selected_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_pressed_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_focused_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_unCheckable_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_unChecked_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_unEnabled_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_unSelected_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_unPressed_gradient_angle) ||
-                        typedArray.hasValue(R.styleable.background_bl_unFocused_gradient_angle))) {
-            gradientAngle %= 360;
-            if (gradientAngle % 45 != 0) {
-                throw new XmlPullParserException(typedArray.getPositionDescription()
-                        + "<gradient> tag requires 'angle' attribute to "
-                        + "be a multiple of 45");
-            }
-            GradientDrawable.Orientation mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
-            switch (gradientAngle) {
-                case 0:
-                    mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
-                    break;
-                case 45:
-                    mOrientation = GradientDrawable.Orientation.BL_TR;
-                    break;
-                case 90:
-                    mOrientation = GradientDrawable.Orientation.BOTTOM_TOP;
-                    break;
-                case 135:
-                    mOrientation = GradientDrawable.Orientation.BR_TL;
-                    break;
-                case 180:
-                    mOrientation = GradientDrawable.Orientation.RIGHT_LEFT;
-                    break;
-                case 225:
-                    mOrientation = GradientDrawable.Orientation.TR_BL;
-                    break;
-                case 270:
-                    mOrientation = GradientDrawable.Orientation.TOP_BOTTOM;
-                    break;
-                case 315:
-                    mOrientation = GradientDrawable.Orientation.TL_BR;
-                    break;
-            }
-            drawable.setOrientation(mOrientation);
-
-        }
-
+        // set padding
         if (typedArray.hasValue(R.styleable.background_bl_padding_left) &&
                 typedArray.hasValue(R.styleable.background_bl_padding_top) &&
                 typedArray.hasValue(R.styleable.background_bl_padding_right) &&
@@ -907,100 +933,12 @@ public class GradientDrawableCreator implements ICreateDrawable {
                 }
             }
         }
-        if (shadowSize > 0 && shadowColor != 0) {
-            ShadowGradientDrawable shadowDrawable = new ShadowGradientDrawable();
-            // Copy all existing properties to shadowDrawable
-            if (shape != 0) {
-                shadowDrawable.setShape(drawable.getShape());
-            }
-            if (hasSetRadius(cornerRadius)) {
-                shadowDrawable.setCornerRadii(cornerRadius);
-            } else if (drawable.getCornerRadius() > 0) {
-                shadowDrawable.setCornerRadius(drawable.getCornerRadius());
-            }
-            if (!Float.isNaN(sizeWidth) && !Float.isNaN(sizeHeight)
-                    && sizeWidth > 0 && sizeHeight > 0) {
-                shadowDrawable.setSize((int) sizeWidth, (int) sizeHeight);
-            }
-            if (strokeWidth > 0) {
-                if (strokeWidth > 0) {
-                    if (strokeDashWidth > 0 || strokeGap > 0) {
-                        shadowDrawable.setStroke((int) strokeWidth, strokeColor, strokeDashWidth, strokeGap);
-                    } else {
-                        shadowDrawable.setStroke((int) strokeWidth, strokeColor);
-                    }
-                }
-            }
-            // Handle gradient
-            if (gradientType == LINEAR_GRADIENT && gradientAngle % 45 == 0
-                    && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                gradientAngle %= 360;
-                GradientDrawable.Orientation mOrientation = GradientDrawable.Orientation.LEFT_RIGHT;
-                switch (gradientAngle) {
-                    case 0: mOrientation = GradientDrawable.Orientation.LEFT_RIGHT; break;
-                    case 45: mOrientation = GradientDrawable.Orientation.BL_TR; break;
-                    case 90: mOrientation = GradientDrawable.Orientation.BOTTOM_TOP; break;
-                    case 135: mOrientation = GradientDrawable.Orientation.BR_TL; break;
-                    case 180: mOrientation = GradientDrawable.Orientation.RIGHT_LEFT; break;
-                    case 225: mOrientation = GradientDrawable.Orientation.TR_BL; break;
-                    case 270: mOrientation = GradientDrawable.Orientation.TOP_BOTTOM; break;
-                    case 315: mOrientation = GradientDrawable.Orientation.TL_BR; break;
-                }
-                shadowDrawable.setOrientation(mOrientation);
-            }
-            if ((centerX >= 0 || centerY >= 0)
-                    && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                shadowDrawable.setGradientCenter(centerX, centerY);
-            }
-            if (startColor != 0 && endColor != 0 && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                int[] colors;
-                if (centerColor != 0) {
-                    colors = new int[3];
-                    colors[0] = startColor;
-                    colors[1] = centerColor;
-                    colors[2] = endColor;
-                } else {
-                    colors = new int[2];
-                    colors[0] = startColor;
-                    colors[1] = endColor;
-                }
-                shadowDrawable.setColors(colors);
-            } else if (solidColor != 0) {
-                shadowDrawable.setColor(solidColor);
-            }
-            shadowDrawable.setGradientType(gradientType);
-            shadowDrawable.setUseLevel(useLevel);
-            if (gradientRadius > 0) {
-                shadowDrawable.setGradientRadius(gradientRadius);
-            }
-            // Apply color state for solid if needed
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP && colorStateList != null) {
-                shadowDrawable.setColor(colorStateList);
-            }
-            // Apply stroke color state if needed
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP && strokeColorStateList != null) {
-                shadowDrawable.setStroke((int) strokeWidth, strokeColorStateList, strokeDashWidth, strokeGap);
-            }
-            // Set padding if needed
-            if (padding.left != 0 || padding.top != 0 || padding.right != 0 || padding.bottom != 0) {
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-                    shadowDrawable.setPadding(padding.left, padding.top, padding.right, padding.bottom);
-                } else {
-                    try {
-                        java.lang.reflect.Field paddingField = shadowDrawable.getClass().getDeclaredField("mPadding");
-                        paddingField.setAccessible(true);
-                        paddingField.set(shadowDrawable, padding);
-                    } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            // Set shadow parameters
-            shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
-            return shadowDrawable;
+
+        if (strokeWidth > 0 && !typedArray.hasValue(R.styleable.background_bl_stroke_color) && !typedArray.hasValue(R.styleable.background_bl_pressed_stroke_color)) {
+            // width set but no color - set stroke with transparent color
+            drawable.setStroke((int) strokeWidth, 0);
         }
+
         return drawable;
     }
 

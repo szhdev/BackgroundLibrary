@@ -105,6 +105,12 @@ public class DrawableCreator {
         private Integer unPressedSolidColor;
         private Integer unFocusedSolidColor;
 
+        // Shadow properties
+        private Float shadowSize;
+        private Integer shadowColor;
+        private Float shadowOffsetX;
+        private Float shadowOffsetY;
+
         private Drawable checkableDrawable;
         private Drawable checkedDrawable;
         private Drawable enabledDrawable;
@@ -510,6 +516,33 @@ public class DrawableCreator {
             return this;
         }
 
+        public Builder setShadow(float size, int color, float offsetX, float offsetY) {
+            this.shadowSize = size;
+            this.shadowColor = color;
+            this.shadowOffsetX = offsetX;
+            this.shadowOffsetY = offsetY;
+            return this;
+        }
+
+        public Builder setShadowSize(float size) {
+            this.shadowSize = size;
+            return this;
+        }
+
+        public Builder setShadowColor(int color) {
+            this.shadowColor = color;
+            return this;
+        }
+
+        public Builder setShadowOffsetX(float offsetX) {
+            this.shadowOffsetX = offsetX;
+            return this;
+        }
+
+        public Builder setShadowOffsetY(float offsetY) {
+            this.shadowOffsetY = offsetY;
+            return this;
+        }
 
         public Drawable build() {
             GradientDrawable drawable = null;
@@ -695,7 +728,11 @@ public class DrawableCreator {
         private GradientDrawable getGradientDrawable() {
             GradientDrawable drawable = baseGradientDrawable;
             if (drawable == null) {
-                drawable = new GradientDrawable();
+                if (shadowSize != null && shadowSize > 0) {
+                    drawable = new ShadowGradientDrawable();
+                } else {
+                    drawable = new GradientDrawable();
+                }
             }
             drawable.setShape(shape.value);
 
@@ -917,6 +954,15 @@ public class DrawableCreator {
             } else if (solidColor != null) {
                 drawable.setColor(solidColor);
             }
+
+            // Set shadow if configured
+            if (drawable instanceof ShadowGradientDrawable && shadowSize != null && shadowColor != null) {
+                ShadowGradientDrawable shadowDrawable = (ShadowGradientDrawable) drawable;
+                float offsetX = shadowOffsetX != null ? shadowOffsetX : 0;
+                float offsetY = shadowOffsetY != null ? shadowOffsetY : 0;
+                shadowDrawable.setShadow(shadowSize, offsetX, offsetY, shadowColor);
+            }
+
             return drawable;
         }
 
