@@ -19,8 +19,7 @@ issue回复不及时，可以添加qq群887686934
     }
 
     implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation 'com.github.JavaNoober.BackgroundLibrary:library:1.7.6'
-
+    implementation 'com.github.szhdev.BackgroundLibrary:library:v1.7.7'
 如果项目使用了androidx：  
 
     allprojects {
@@ -31,7 +30,7 @@ issue回复不及时，可以添加qq群887686934
     }
 
     implementation "androidx.appcompat:appcompat:$supportVersion" 
-    implementation 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.6'
+    implementation 'com.github.szhdev.BackgroundLibrary:libraryx:v1.7.7'
    
 
 ## 使用文档
@@ -43,7 +42,48 @@ issue回复不及时，可以添加qq群887686934
 [wiki](https://github.com/JavaNoober/BackgroundLibrary/wiki)  
 
 ## 示例效果
+阴影效果：
 
+<img width="282" height="483" alt="QQ截图20260326125036" src="https://github.com/user-attachments/assets/946c48dc-11f2-42ec-b53c-0115dac6c5c4" />
+<img width="278" height="486" alt="QQ截图20260326125108" src="https://github.com/user-attachments/assets/fb3889aa-00c0-435a-84e2-347e45d974d8" />
+
+
+使用方式不变
+1. xml中
+selector一样，但是只需要直接在xml中加入属性即可，例如
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="右下偏移阴影"
+            android:textColor="@android:color/white"
+            app:bl_corners_radius="8dp"
+            app:bl_shadow_color="#2196F3"
+            app:bl_shadow_offsetX="6dp"
+            app:bl_shadow_offsetY="6dp"
+            app:bl_shadow_size="10dp"
+            app:bl_solid_color="#2196F3" />
+
+
+2. 代码中
+   
+        TextView shapeTv = findViewById(R.id.tv_shadow);
+        Drawable shapeDrawable = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
+                .setSolidColor(Color.parseColor("#FF4081"))
+                .setStrokeColor(Color.parseColor("#4CAF50"))
+                .setStrokeWidth(dip2px(1))
+                .setShadow(dip2px(10), Color.parseColor("#2196F3"), dip2px(10), dip2px(10))
+                .build();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+            shapeTv.setBackground(shapeDrawable);
+        }else {
+            shapeTv.setBackgroundDrawable(shapeDrawable);
+        }
+
+   
+   
 ![](https://raw.githubusercontent.com/JavaNoober/BackgroundLibrary/master/test/show.gif)
 
 使用效果完全和原生shape 
