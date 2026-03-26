@@ -44,8 +44,9 @@ issue回复不及时，可以添加qq群887686934
 ## 示例效果
 阴影效果：
 
-<img width="282" height="483" alt="QQ截图20260326125036" src="https://github.com/user-attachments/assets/946c48dc-11f2-42ec-b53c-0115dac6c5c4" />
-<img width="278" height="486" alt="QQ截图20260326125108" src="https://github.com/user-attachments/assets/fb3889aa-00c0-435a-84e2-347e45d974d8" />
+<img width="418" height="737" alt="QQ截图20260326161911" src="https://github.com/user-attachments/assets/118a3a84-b3a4-49f1-94e9-b52d895bd5d8" />
+<img width="415" height="693" alt="QQ截图20260326161946" src="https://github.com/user-attachments/assets/2949822e-bb9f-4d3b-a354-e9015c46ae17" />
+
 
 
 使用方式不变
