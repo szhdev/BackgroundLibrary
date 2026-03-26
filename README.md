@@ -52,7 +52,7 @@ issue回复不及时，可以添加qq群887686934
 1. xml中
 selector一样，但是只需要直接在xml中加入属性即可，例如
 
-        <com.noober.background.view.BLTextView
+        <TextView
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_marginTop="5dp"
