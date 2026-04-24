@@ -47,9 +47,9 @@ issue回复不及时，可以添加qq群887686934
 <img width="418" height="737" alt="QQ截图20260326161911" src="https://github.com/user-attachments/assets/118a3a84-b3a4-49f1-94e9-b52d895bd5d8" />
 <img width="415" height="693" alt="QQ截图20260326161946" src="https://github.com/user-attachments/assets/2949822e-bb9f-4d3b-a354-e9015c46ae17" />
 
+**使用方式不变**
 
-
-使用方式不变
+[BackgroundLibrary.xml](https://github.com/szhdev/BackgroundLibrary/blob/master/BackgroundLibrary.xml) 代码提示文件请及时更换
 1. xml中
 selector一样，但是只需要直接在xml中加入属性即可，例如
 
