@@ -1,5 +1,5 @@
 # BackgroundLibrary
-A framework for directly generating shape through Tags, no need to write shape.xml again（通过标签直接生成shape，无需再写shape.xml）  
+A framework for directly generating shape through Tags, no need to write shape.xml again Supports simple shadow settings（通过标签直接生成shape，无需再写shape.xml）  
 
 issue回复不及时，可以添加qq群887686934  
 
