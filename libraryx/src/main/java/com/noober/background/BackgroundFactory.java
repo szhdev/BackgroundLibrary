@@ -307,11 +307,11 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
 			// When ShadowGradientDrawable is present (shadow enabled), it already adds shadowRadius inset on all sides
 			// We need to increase the clip amount by shadowRadius to get the stroke completely outside the visible area
 			float extraInset = 0;
-			if (hasShadowGradientDrawable(drawable)) {
-				// ShadowGradientDrawable already insets content by shadowRadius, so we need extra inset to clip completely
-				if (typedArray.hasValue(R.styleable.background_bl_shadow_size)) {
-					extraInset = typedArray.getDimension(R.styleable.background_bl_shadow_size, 0f);
-				}
+			ShadowGradientDrawable shadowDrawable = findShadowGradientDrawable(drawable);
+			if (shadowDrawable != null) {
+				// Ask the drawable itself for its shadow spread, so BackgroundFactory
+				// stays in sync with any future change in ShadowGradientDrawable's geometry model.
+				extraInset = shadowDrawable.getShadowInset();
 			}
 
 			// bl_stroke_position lists the sides where stroke should be VISIBLE
@@ -355,18 +355,28 @@ public class BackgroundFactory implements LayoutInflater.Factory2 {
 	 * This handles cases where ShadowGradientDrawable is wrapped inside LayerDrawable etc.
 	 */
 	private static boolean hasShadowGradientDrawable(Drawable drawable) {
+		return findShadowGradientDrawable(drawable) != null;
+	}
+
+	/**
+	 * Recursively find the first ShadowGradientDrawable contained in the given drawable tree,
+	 * or {@code null} if none is found. Handles nesting inside LayerDrawable.
+	 */
+	private static ShadowGradientDrawable findShadowGradientDrawable(Drawable drawable) {
 		if (drawable instanceof ShadowGradientDrawable) {
-			return true;
+			return (ShadowGradientDrawable) drawable;
 		}
 		if (drawable instanceof LayerDrawable) {
 			LayerDrawable layerDrawable = (LayerDrawable) drawable;
 			for (int i = 0; i < layerDrawable.getNumberOfLayers(); i++) {
-				if (hasShadowGradientDrawable(layerDrawable.getDrawable(i))) {
-					return true;
+				ShadowGradientDrawable found = findShadowGradientDrawable(layerDrawable.getDrawable(i));
+				if (found != null) {
+					return found;
 				}
 			}
 		}
-		return false;
+		// StateListDrawable etc. are not expected to contain ShadowGradientDrawable
+		return null;
 	}
 
 	private static boolean hasStatus(int flag, int status) {

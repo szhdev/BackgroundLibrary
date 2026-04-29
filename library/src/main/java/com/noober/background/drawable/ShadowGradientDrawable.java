@@ -1,7 +1,6 @@
 package com.noober.background.drawable;
 
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -26,7 +25,16 @@ public class ShadowGradientDrawable extends GradientDrawable {
     private int shape = GradientDrawable.RECTANGLE;
     private final Paint shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint clearPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private final Paint compositePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    // Reusable objects to avoid allocations in draw()
+    private final RectF shadowRect = new RectF();
+    private final RectF contentRect = new RectF();
+    private final Rect originalBounds = new Rect();
+    private final Rect insetBounds = new Rect();
+
+    // Cached BlurMaskFilter, rebuilt only when blurRadius changes
+    private BlurMaskFilter cachedBlurMaskFilter;
+    private float cachedBlurRadius = -1f;
 
     public void setShadow(float radius, float dx, float dy, int color) {
         this.shadowRadius = radius;
@@ -35,6 +43,15 @@ public class ShadowGradientDrawable extends GradientDrawable {
         this.shadowColor = color;
         clearPaint.setColor(Color.TRANSPARENT);
         clearPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+    }
+
+    /**
+     * Returns the amount by which this drawable insets its content on each side to make
+     * room for the blurred shadow. Callers (e.g. {@code BackgroundFactory}) can use this
+     * value as authoritative shadow spread instead of re-parsing TypedArray attributes.
+     */
+    public float getShadowInset() {
+        return shadowRadius;
     }
 
     @Override
@@ -112,20 +129,25 @@ public class ShadowGradientDrawable extends GradientDrawable {
                 shadowBottom = contentBottom + shadowDy;
             }
 
-            RectF shadowRect = new RectF(shadowLeft, shadowTop, shadowRight, shadowBottom);
+            shadowRect.set(shadowLeft, shadowTop, shadowRight, shadowBottom);
 
             // Configure shadow paint
-            shadowPaint.setColor(shadowColor);
+            shadowPaint.setColor(shadowColor == 0 ? currentSolidColor : shadowColor);
             // Use BlurMaskFilter like ShapeDrawable for consistent shadow rendering
             float blurRadius;
             // Divide radius to match visual size - same approach as ShapeDrawable
             //除以倍数，因为如果不这么做会导致阴影显示会超过 View 边界，从而导致出现阴影被截断的效果
-            if (Build.VERSION.SDK_INT >= 28) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 blurRadius = shadowRadius / 2f;
             } else {
                 blurRadius = shadowRadius / 3f;
             }
-            shadowPaint.setMaskFilter(new BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.NORMAL));
+            // Cache BlurMaskFilter: rebuild only when blur radius changes to reduce allocations during frequent redraws
+            if (cachedBlurMaskFilter == null || blurRadius != cachedBlurRadius) {
+                cachedBlurMaskFilter = new BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.NORMAL);
+                cachedBlurRadius = blurRadius;
+                shadowPaint.setMaskFilter(cachedBlurMaskFilter);
+            }
             shadowPaint.setStyle(Paint.Style.FILL);
 
             canvas.save();
@@ -137,14 +159,14 @@ public class ShadowGradientDrawable extends GradientDrawable {
             // This removes the shadow color from the interior making it transparent
             // Only the outer blurred shadow will remain visible around the border
             if (currentSolidColor == 0 || Color.alpha(currentSolidColor) == 0) {
-                RectF contentRect = new RectF(contentLeft, contentTop, contentRight, contentBottom);
+                contentRect.set(contentLeft, contentTop, contentRight, contentBottom);
                 drawShape(canvas, contentRect, clearPaint);
             }
 
             // Draw content on top with insetted bounds to make room for shadow
             // We need to change the bounds temporarily because GradientDrawable uses getBounds()
-            Rect originalBounds = new Rect(getBounds());
-            Rect insetBounds = new Rect(
+            originalBounds.set(getBounds());
+            insetBounds.set(
                 (int) Math.ceil(contentLeft),
                 (int) Math.ceil(contentTop),
                 (int) Math.floor(contentRight),
