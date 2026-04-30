@@ -27,6 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListActivity" />
+        <activity android:name=".NightModeActivity"
+            android:theme="@style/BlDemoNightTheme" />
     </application>
 
 </manifest>

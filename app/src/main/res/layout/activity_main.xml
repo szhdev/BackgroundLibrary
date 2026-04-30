@@ -13,6 +13,20 @@
         tools:context=".MainActivity"
         tools:ignore="MissingPrefix">
 
+        <com.noober.background.view.BLButton
+            android:id="@+id/btn_night_mode"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="夜间模式演示"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:bl_corners_radius="24dp"
+            app:bl_solid_color="#2196F3"
+            app:bl_pressed_solid_color="#1976D2" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

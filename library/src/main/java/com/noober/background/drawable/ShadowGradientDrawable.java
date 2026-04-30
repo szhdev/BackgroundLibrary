@@ -15,6 +15,9 @@ import android.support.annotation.NonNull;
 
 public class ShadowGradientDrawable extends GradientDrawable {
 
+    private static final PorterDuffXfermode CLEAR_XFERMODE =
+            new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+
     private float shadowRadius = 0;
     private float shadowDx = 0;
     private float shadowDy = 0;
@@ -32,17 +35,22 @@ public class ShadowGradientDrawable extends GradientDrawable {
     private final Rect originalBounds = new Rect();
     private final Rect insetBounds = new Rect();
 
-    // Cached BlurMaskFilter, rebuilt only when blurRadius changes
+    // Cached BlurMaskFilter, rebuilt only when shadowRadius changes
     private BlurMaskFilter cachedBlurMaskFilter;
-    private float cachedBlurRadius = -1f;
+    private float cachedShadowRadius = -1f;
 
     public void setShadow(float radius, float dx, float dy, int color) {
+        if (this.shadowRadius != radius) {
+            cachedBlurMaskFilter = null;  // 参数变化时清理旧缓存
+            cachedShadowRadius = -1f;
+        }
         this.shadowRadius = radius;
         this.shadowDx = dx;
         this.shadowDy = dy;
         this.shadowColor = color;
         clearPaint.setColor(Color.TRANSPARENT);
-        clearPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        clearPaint.setXfermode(CLEAR_XFERMODE);
+        shadowPaint.setStyle(Paint.Style.FILL);
     }
 
     /**
@@ -99,13 +107,23 @@ public class ShadowGradientDrawable extends GradientDrawable {
     public void draw(@NonNull Canvas canvas) {
         if (shadowRadius > 0) {
             Rect bounds = getBounds();
+            int boundsWidth = bounds.right - bounds.left;
+            int boundsHeight = bounds.bottom - bounds.top;
+
+            if (boundsWidth <= 0 || boundsHeight <= 0) {
+                super.draw(canvas);
+                return;
+            }
+
+            // 限制 shadowRadius 不超过 bounds 一半
+            float effectiveShadowRadius = Math.min(shadowRadius, Math.min(boundsWidth, boundsHeight) / 2f);
 
             // Inset content by shadow radius on all sides to make room for shadow
             // This keeps content centered regardless of offset
-            float contentLeft = bounds.left + shadowRadius;
-            float contentTop = bounds.top + shadowRadius;
-            float contentRight = bounds.right - shadowRadius;
-            float contentBottom = bounds.bottom - shadowRadius;
+            float contentLeft = bounds.left + effectiveShadowRadius;
+            float contentTop = bounds.top + effectiveShadowRadius;
+            float contentRight = bounds.right - effectiveShadowRadius;
+            float contentBottom = bounds.bottom - effectiveShadowRadius;
 
             // Calculate shadow rectangle based on offset
             float shadowLeft;
@@ -113,20 +131,24 @@ public class ShadowGradientDrawable extends GradientDrawable {
             float shadowRight;
             float shadowBottom;
 
-            if (shadowDx > 0) {
-                shadowLeft = contentLeft + shadowDx;
+            // Constrain offsets by effectiveShadowRadius
+            float effectiveDx = Math.max(-effectiveShadowRadius, Math.min(shadowDx, effectiveShadowRadius));
+            float effectiveDy = Math.max(-effectiveShadowRadius, Math.min(shadowDy, effectiveShadowRadius));
+
+            if (effectiveDx > 0) {
+                shadowLeft = contentLeft + effectiveDx;
                 shadowRight = contentRight;
             } else {
                 shadowLeft = contentLeft;
-                shadowRight = contentRight + shadowDx;
+                shadowRight = contentRight + effectiveDx;
             }
 
-            if (shadowDy > 0) {
-                shadowTop = contentTop + shadowDy;
+            if (effectiveDy > 0) {
+                shadowTop = contentTop + effectiveDy;
                 shadowBottom = contentBottom;
             } else {
                 shadowTop = contentTop;
-                shadowBottom = contentBottom + shadowDy;
+                shadowBottom = contentBottom + effectiveDy;
             }
 
             shadowRect.set(shadowLeft, shadowTop, shadowRight, shadowBottom);
@@ -134,21 +156,20 @@ public class ShadowGradientDrawable extends GradientDrawable {
             // Configure shadow paint
             shadowPaint.setColor(shadowColor == 0 ? currentSolidColor : shadowColor);
             // Use BlurMaskFilter like ShapeDrawable for consistent shadow rendering
-            float blurRadius;
-            // Divide radius to match visual size - same approach as ShapeDrawable
-            //除以倍数，因为如果不这么做会导致阴影显示会超过 View 边界，从而导致出现阴影被截断的效果
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                blurRadius = shadowRadius / 2f;
-            } else {
-                blurRadius = shadowRadius / 3f;
-            }
-            // Cache BlurMaskFilter: rebuild only when blur radius changes to reduce allocations during frequent redraws
-            if (cachedBlurMaskFilter == null || blurRadius != cachedBlurRadius) {
+            // Cache BlurMaskFilter: rebuild only when shadowRadius changes to reduce allocations during frequent redraws
+            if (cachedBlurMaskFilter == null || shadowRadius != cachedShadowRadius) {
+                // Divide radius to match visual size - same approach as ShapeDrawable
+                //除以倍数，因为如果不这么做会导致阴影显示会超过 View 边界，从而导致出现阴影被截断的效果
+                float blurRadius;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    blurRadius = shadowRadius / 2f;
+                } else {
+                    blurRadius = shadowRadius / 3f;
+                }
                 cachedBlurMaskFilter = new BlurMaskFilter(blurRadius, BlurMaskFilter.Blur.NORMAL);
-                cachedBlurRadius = blurRadius;
+                cachedShadowRadius = shadowRadius;
                 shadowPaint.setMaskFilter(cachedBlurMaskFilter);
             }
-            shadowPaint.setStyle(Paint.Style.FILL);
 
             canvas.save();
 
@@ -220,6 +241,9 @@ public class ShadowGradientDrawable extends GradientDrawable {
                     ry = cornerRadius;
                     hasRoundedCorners = true;
                 }
+
+                rx = Math.max(0, rx);
+                ry = Math.max(0, ry);
 
                 if (hasRoundedCorners) {
                     canvas.drawRoundRect(bounds, rx, ry, paint);

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/blDemoBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 标题 + 切换按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="夜间模式演示"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="?attr/blDemoText" />
+
+            <com.noober.background.view.BLButton
+                android:id="@+id/btn_toggle_night"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="切换主题"
+                android:textColor="?attr/blDemoOnPrimary"
+                android:textSize="14sp"
+                app:bl_solid_color="?attr/blDemoPrimary"
+                app:bl_corners_radius="20dp"
+                app:bl_pressed_solid_color="?attr/blDemoPressedBg" />
+        </LinearLayout>
+
+        <!-- 场景1: 基础 Shape 卡片 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 基础 Shape + 阴影 (?attr/)"
+            android:textColor="?attr/blDemoTextSecondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="圆角卡片 + 阴影"
+            android:textColor="?attr/blDemoText"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            app:bl_solid_color="?attr/blDemoCard"
+            app:bl_corners_radius="12dp"
+            app:bl_stroke_width="1dp"
+            app:bl_stroke_color="?attr/blDemoStroke"
+            app:bl_shadow_color="?attr/blDemoShadow"
+            app:bl_shadow_size="4dp" />
+
+        <!-- 场景2: 渐变按钮 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. 渐变填充 (?attr/)"
+            android:textColor="?attr/blDemoTextSecondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.noober.background.view.BLButton
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="渐变按钮"
+            android:textColor="?attr/blDemoOnPrimary"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            app:bl_corners_radius="24dp"
+            app:bl_gradient_startColor="?attr/blDemoGradientStart"
+            app:bl_gradient_endColor="?attr/blDemoGradientEnd"
+            app:bl_gradient_angle="0" />
+
+        <!-- 场景3: Selector 按压状态 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Selector 状态 (?attr/)"
+            android:textColor="?attr/blDemoTextSecondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.noober.background.view.BLButton
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="按压变色按钮"
+            android:textColor="?attr/blDemoOnPrimary"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            app:bl_corners_radius="8dp"
+            app:bl_solid_color="?attr/blDemoPrimary"
+            app:bl_pressed_solid_color="?attr/blDemoPressedBg"
+            app:bl_stroke_width="1dp"
+            app:bl_stroke_color="?attr/blDemoStroke" />
+
+        <!-- 场景4: Multi Selector (核心演示) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Multi Selector + ?attr/ (新增能力)"
+            android:textColor="?attr/blDemoAccent"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="Multi Selector: 按压试试"
+            android:textColor="?attr/blDemoOnPrimary"
+            android:textSize="15sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="16dp"
+            app:bl_corners_radius="8dp"
+            app:bl_multi_selector1="state_pressed,?attr/blDemoPressedBg"
+            app:bl_multi_selector2="-state_pressed,?attr/blDemoPrimary" />
+
+        <!-- 场景5: 文字颜色状态 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. 文字颜色 Selector (?attr/)"
+            android:textColor="?attr/blDemoTextSecondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="按压文字变色"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="16dp"
+            app:bl_corners_radius="8dp"
+            app:bl_solid_color="?attr/blDemoCard"
+            app:bl_stroke_width="1dp"
+            app:bl_stroke_color="?attr/blDemoStroke"
+            app:bl_pressed_textColor="?attr/blDemoAccent"
+            app:bl_unPressed_textColor="?attr/blDemoText" />
+
+        <!-- 场景6: 带边框 + 阴影组合 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. 边框 + 阴影组合 (?attr/)"
+            android:textColor="?attr/blDemoTextSecondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="切换主题查看阴影和边框颜色变化"
+            android:textColor="?attr/blDemoText"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp"
+            app:bl_shape="rectangle"
+            app:bl_solid_color="?attr/blDemoCard"
+            app:bl_corners_radius="16dp"
+            app:bl_stroke_width="2dp"
+            app:bl_stroke_color="?attr/blDemoPrimary"
+            app:bl_shadow_color="?attr/blDemoShadow"
+            app:bl_shadow_size="6dp"
+            app:bl_shadow_offsetY="2dp" />
+
+    </LinearLayout>
+</ScrollView>

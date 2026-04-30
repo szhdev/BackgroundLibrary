@@ -92,6 +92,12 @@
         <attr name="bl_stroke_dashWidth" format="dimension" />
         <attr name="bl_stroke_dashGap" format="dimension" />
 
+        <!-- 阴影相关属性 -->
+        <attr name="bl_shadow_size" format="dimension" />
+        <attr name="bl_shadow_color" format="color" />
+        <attr name="bl_shadow_offsetX" format="dimension" />
+        <attr name="bl_shadow_offsetY" format="dimension" />
+
         <!--以下是selector事件-->
         <attr name="bl_ripple_enable" format="boolean" />
         <attr name="bl_ripple_color" format="color" />
@@ -301,11 +307,6 @@
             <flag name="bottom" value="16" />
         </attr>
 
-        <!-- 阴影相关属性 -->
-        <attr name="bl_shadow_size" format="dimension" />
-        <attr name="bl_shadow_color" format="color" />
-        <attr name="bl_shadow_offsetX" format="dimension" />
-        <attr name="bl_shadow_offsetY" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="background_selector_pre_21">

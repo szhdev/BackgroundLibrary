@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BlDemoNightTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="blDemoPrimary">#FF5722</item>
+        <item name="blDemoOnPrimary">#FFFFFF</item>
+        <item name="blDemoBackground">#121212</item>
+        <item name="blDemoCard">#1E1E1E</item>
+        <item name="blDemoText">#E0E0E0</item>
+        <item name="blDemoTextSecondary">#9E9E9E</item>
+        <item name="blDemoStroke">#333333</item>
+        <item name="blDemoShadow">#E0E0E0</item>
+        <item name="blDemoPressedBg">#1565C0</item>
+        <item name="blDemoDisabledBg">#424242</item>
+        <item name="blDemoAccent">#FF7043</item>
+        <item name="blDemoGradientStart">#1565C0</item>
+        <item name="blDemoGradientEnd">#00838F</item>
+    </style>
+</resources>

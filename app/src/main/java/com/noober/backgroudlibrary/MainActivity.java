@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main);
         getSupportFragmentManager().beginTransaction().add(R.id.fl_content, new BlankFragment()).commitAllowingStateLoss();
 
+        findViewById(R.id.btn_night_mode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NightModeActivity.class));
+            }
+        });
+
         View vAnim = findViewById(R.id.v_anim);
 //        AnimationDrawable animationDrawable = (AnimationDrawable) vAnim.getBackground();
 //        animationDrawable.start();
@@ -64,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView shapeTv = findViewById(R.id.tv_shadow);
         Drawable shapeDrawable = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
-                .setSolidColor(Color.parseColor("#FF4081"))
+//                .setSolidColor(Color.parseColor("#FF4081"))
+                .setSolidColor(ContextCompat.getColor(this,R.color.colorAccent))
                 .setStrokeColor(Color.parseColor("#4CAF50"))
                 .setStrokeWidth(dip2px(1))
                 .setShadow(dip2px(10), Color.parseColor("#2196F3"), dip2px(10), dip2px(10))

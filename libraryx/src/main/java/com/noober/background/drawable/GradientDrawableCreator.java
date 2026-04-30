@@ -615,7 +615,15 @@ public class GradientDrawableCreator implements ICreateDrawable {
 
         // Create the appropriate drawable upfront
         GradientDrawable drawable;
-        boolean hasShadow = shadowSize > 0 && shadowColor != 0;
+        boolean hasShadow = shadowSize > 0;
+        if (hasShadow && shadowColor == 0) {
+            // 用户设置了 size 但没有设 color，自动继承 solidColor
+            if (solidColor != 0) {
+                shadowColor = solidColor;
+            } else {
+                hasShadow = false;  // 两者都没有，则不启用阴影
+            }
+        }
         if (hasShadow) {
             ShadowGradientDrawable shadowDrawable = new ShadowGradientDrawable();
             shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
@@ -649,8 +657,6 @@ public class GradientDrawableCreator implements ICreateDrawable {
                 typedArray.hasValue(R.styleable.background_bl_size_height)) {
             drawable.setSize((int) sizeWidth, (int) sizeHeight);
         }
-
-        drawable.setGradientType(gradientType);
 
         // set gradient orientation based on angle if needed
         if (((typedArray.hasValue(R.styleable.background_bl_gradient_startColor) &&

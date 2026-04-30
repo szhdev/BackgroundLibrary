@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="blDemoPrimary" format="color" />
+    <attr name="blDemoOnPrimary" format="color" />
+    <attr name="blDemoBackground" format="color" />
+    <attr name="blDemoCard" format="color" />
+    <attr name="blDemoText" format="color" />
+    <attr name="blDemoTextSecondary" format="color" />
+    <attr name="blDemoStroke" format="color" />
+    <attr name="blDemoShadow" format="color" />
+    <attr name="blDemoPressedBg" format="color" />
+    <attr name="blDemoDisabledBg" format="color" />
+    <attr name="blDemoAccent" format="color" />
+    <attr name="blDemoGradientStart" format="color" />
+    <attr name="blDemoGradientEnd" format="color" />
+</resources>
