@@ -837,5 +837,105 @@
         <!--            android:name="com.noober.backgroudlibrary.BlankFragment"-->
         <!--            android:layout_width="match_parent"-->
         <!--            android:layout_height="match_parent" />-->
+
+        <!-- 渐变边框演示 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="渐变边框"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 渐变边框 - 水平方向 -->
+        <com.noober.background.view.BLTextView
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="渐变边框 (角度0)"
+            app:bl_corners_radius="12dp"
+            app:bl_solid_color="#FFFFFF"
+            app:bl_stroke_width="3dp"
+            app:bl_stroke_gradient_startColor="#FF5722"
+            app:bl_stroke_gradient_endColor="#2196F3"
+            app:bl_stroke_gradient_angle="0" />
+
+        <!-- 渐变边框 - 对角方向 + 三色 -->
+        <com.noober.background.view.BLTextView
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="三色渐变边框 (角度45)"
+            app:bl_corners_radius="30dp"
+            app:bl_solid_color="#FFFFFF"
+            app:bl_stroke_width="3dp"
+            app:bl_stroke_gradient_startColor="#E91E63"
+            app:bl_stroke_gradient_centerColor="#9C27B0"
+            app:bl_stroke_gradient_endColor="#3F51B5"
+            app:bl_stroke_gradient_angle="45"
+            app:bl_stroke_dashWidth="10dp"
+            app:bl_stroke_dashGap="5dp"/>
+
+        <!-- 渐变边框 - 圆形 -->
+        <com.noober.background.view.BLView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            app:bl_shape="oval"
+            app:bl_solid_color="#FFFFFF"
+            app:bl_stroke_width="3dp"
+            app:bl_stroke_gradient_startColor="#4CAF50"
+            app:bl_stroke_gradient_endColor="#FFEB3B"
+            app:bl_stroke_gradient_angle="90" />
+
+        <!-- ImageView 圆形/圆角裁剪演示 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="ImageView 圆形/圆角"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 圆形 ImageView -->
+        <com.noober.background.view.BLImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img00"
+            app:bl_stroke_width="3dp"
+            app:bl_stroke_color="#E91E63"
+            app:bl_shape="oval"
+            app:bl_stroke_gradient_startColor="#E91E63"
+            app:bl_stroke_gradient_centerColor="#9C27B0"
+            app:bl_stroke_gradient_endColor="#FFEB3B"
+            app:bl_stroke_gradient_angle="0"/>
+
+        <!-- 圆角 ImageView -->
+        <com.noober.background.view.BLImageView
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img01"
+            app:bl_corners_radius="16dp"
+            app:bl_stroke_width="2dp"
+            app:bl_stroke_color="#E91E63"
+            app:bl_stroke_dashWidth="10dp"
+            app:bl_stroke_dashGap="5dp"/>
+
+        <!-- 大圆角 ImageView -->
+        <com.noober.background.view.BLImageView
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img02"
+            app:bl_corners_radius="60dp" />
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

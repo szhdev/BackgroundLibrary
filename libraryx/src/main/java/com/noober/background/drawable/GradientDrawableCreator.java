@@ -9,6 +9,7 @@ import android.os.Build;
 import androidx.annotation.AttrRes;
 
 import com.noober.background.R;
+import com.noober.background.drawable.BLShapeDrawable;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -61,6 +62,10 @@ public class GradientDrawableCreator implements ICreateDrawable {
         Rect padding = new Rect();
         ColorStateList colorStateList = null;
         ColorStateList strokeColorStateList = null;
+        int strokeGradientStartColor = 0;
+        int strokeGradientCenterColor = 0;
+        int strokeGradientEndColor = 0;
+        int strokeGradientAngle = 0;
 
         // First pass: collect all attribute values
         for (int i = 0; i < typedArray.getIndexCount(); i++) {
@@ -610,6 +615,14 @@ public class GradientDrawableCreator implements ICreateDrawable {
                 shadowOffsetX = typedArray.getDimension(attr, 0);
             } else if (attr == R.styleable.background_bl_shadow_offsetY) {
                 shadowOffsetY = typedArray.getDimension(attr, 0);
+            } else if (attr == R.styleable.background_bl_stroke_gradient_startColor) {
+                strokeGradientStartColor = typedArray.getColor(attr, 0);
+            } else if (attr == R.styleable.background_bl_stroke_gradient_centerColor) {
+                strokeGradientCenterColor = typedArray.getColor(attr, 0);
+            } else if (attr == R.styleable.background_bl_stroke_gradient_endColor) {
+                strokeGradientEndColor = typedArray.getColor(attr, 0);
+            } else if (attr == R.styleable.background_bl_stroke_gradient_angle) {
+                strokeGradientAngle = typedArray.getInt(attr, 0);
             }
         }
 
@@ -624,10 +637,15 @@ public class GradientDrawableCreator implements ICreateDrawable {
                 hasShadow = false;  // 两者都没有，则不启用阴影
             }
         }
+        boolean hasStrokeGradient = strokeGradientStartColor != 0 && strokeGradientEndColor != 0 && strokeWidth > 0;
+
         if (hasShadow) {
             ShadowGradientDrawable shadowDrawable = new ShadowGradientDrawable();
             shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
             drawable = shadowDrawable;
+        } else if (hasStrokeGradient) {
+            BLShapeDrawable shapeDrawable = new BLShapeDrawable();
+            drawable = shapeDrawable;
         } else {
             drawable = new GradientDrawable();
         }
@@ -839,8 +857,22 @@ public class GradientDrawableCreator implements ICreateDrawable {
             drawable.setColor(solidColor);
         }
 
+        // configure stroke gradient if applicable
+        if (hasStrokeGradient && drawable instanceof BLShapeDrawable) {
+            BLShapeDrawable blDrawable = (BLShapeDrawable) drawable;
+            blDrawable.setStrokeGradient((int) strokeWidth, strokeGradientStartColor,
+                    strokeGradientCenterColor, strokeGradientEndColor, strokeGradientAngle);
+            blDrawable.setBlShape(shape);
+            if (hasSetRadius(cornerRadius)) {
+                blDrawable.setBlCornerRadii(cornerRadius);
+            }
+            if (strokeDashWidth > 0 && strokeGap > 0) {
+                blDrawable.setStrokeDash(strokeDashWidth, strokeGap);
+            }
+        }
+
         // set stroke
-        if (typedArray.hasValue(R.styleable.background_bl_stroke_width)) {
+        if (!hasStrokeGradient && typedArray.hasValue(R.styleable.background_bl_stroke_width)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 int start = 0;
                 ArrayList<Integer> stateList = new ArrayList<>();
@@ -929,7 +961,7 @@ public class GradientDrawableCreator implements ICreateDrawable {
             }
         }
 
-        if (strokeWidth > 0 && !typedArray.hasValue(R.styleable.background_bl_stroke_color) && !typedArray.hasValue(R.styleable.background_bl_pressed_stroke_color)) {
+        if (!hasStrokeGradient && strokeWidth > 0 && !typedArray.hasValue(R.styleable.background_bl_stroke_color) && !typedArray.hasValue(R.styleable.background_bl_pressed_stroke_color)) {
             // width set but no color - set stroke with transparent color
             drawable.setStroke((int) strokeWidth, 0);
         }

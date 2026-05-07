@@ -1,509 +1,239 @@
 <templateSet group="BackgroundLibrary">
-  <template name="bl_shape" value="app:bl_shape=&quot;$value$&quot;" description="shape类型" toReformat="false" toShortenFQNames="true">
+  <template name="bl_activated_textColor" value="app:bl_activated_textColor=&quot;$value$&quot;" description="激活状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_shape_alpha" value="app:bl_shape_alpha=&quot;$value$&quot;" description="shape透明度" toReformat="false" toShortenFQNames="true">
+  <template name="bl_active_textColor" value="app:bl_active_textColor=&quot;$value$&quot;" description="活动状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_solid_color" value="app:bl_solid_color=&quot;$value$&quot;" description="填充颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_anim_auto_start" value="app:bl_anim_auto_start=&quot;$value$&quot;" description="帧动画自动播放" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_shadow_size" value="app:bl_shadow_size=&quot;$value$&quot;" description="阴影大小" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_drawable" value="app:bl_checkable_drawable=&quot;$value$&quot;" description="可选中状态drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_shadow_color" value="app:bl_shadow_color=&quot;$value$&quot;" description="阴影颜色" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_angle" value="app:bl_checkable_gradient_angle=&quot;$value$&quot;" description="可选中状态渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_shadow_offsetX" value="app:bl_shadow_offsetX=&quot;$value$&quot;" description="阴影水平偏移" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_centerColor" value="app:bl_checkable_gradient_centerColor=&quot;$value$&quot;" description="可选中状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_shadow_offsetY" value="app:bl_shadow_offsetY=&quot;$value$&quot;" description="阴影垂直偏移" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_centerX" value="app:bl_checkable_gradient_centerX=&quot;$value$&quot;" description="可选中状态渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_corners_radius" value="app:bl_corners_radius=&quot;$value$&quot;" description="圆角宽度" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_centerY" value="app:bl_checkable_gradient_centerY=&quot;$value$&quot;" description="可选中状态渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_corners_bottomLeftRadius" value="app:bl_corners_bottomLeftRadius=&quot;$value$&quot;" description="左下圆角宽度" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_endColor" value="app:bl_checkable_gradient_endColor=&quot;$value$&quot;" description="可选中状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_corners_bottomRightRadius" value="app:bl_corners_bottomRightRadius=&quot;$value$&quot;" description="右下圆角宽度" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_gradientRadius" value="app:bl_checkable_gradient_gradientRadius=&quot;$value$&quot;" description="可选中状态渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_corners_topRightRadius" value="app:bl_corners_topRightRadius=&quot;$value$&quot;" description="右上圆角宽度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_startColor" value="app:bl_checkable_gradient_startColor=&quot;$value$&quot;" description="可选中状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_corners_topLeftRadius" value="app:bl_corners_topLeftRadius=&quot;$value$&quot;" description="左上圆角宽度" toReformat="false" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_type" value="app:bl_checkable_gradient_type=&quot;$value$&quot;" description="可选中状态渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_angle" value="app:bl_gradient_angle=&quot;$value$&quot;" description="渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checkable_gradient_useLevel" value="app:bl_checkable_gradient_useLevel=&quot;$value$&quot;" description="可选中状态是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_centerX" value="app:bl_gradient_centerX=&quot;$value$&quot;" description="渐变中心X" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checkable_solid_color" value="app:bl_checkable_solid_color=&quot;$value$&quot;" description="可选中状态填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_centerY" value="app:bl_gradient_centerY=&quot;$value$&quot;" description="渐变中心Y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checkable_stroke_color" value="app:bl_checkable_stroke_color=&quot;$value$&quot;" description="可选中状态边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_centerColor" value="app:bl_gradient_centerColor=&quot;$value$&quot;" description="渐变中心颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checkable_textColor" value="app:bl_checkable_textColor=&quot;$value$&quot;" description="可选中状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_endColor" value="app:bl_gradient_endColor=&quot;$value$&quot;" description="渐变结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_button_drawable" value="app:bl_checked_button_drawable=&quot;$value$&quot;" description="checked状态button drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_startColor" value="app:bl_gradient_startColor=&quot;$value$&quot;" description="渐变开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_drawable" value="app:bl_checked_drawable=&quot;$value$&quot;" description="选中状态drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_gradientRadius" value="app:bl_gradient_gradientRadius=&quot;$value$&quot;" description="渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_angle" value="app:bl_checked_gradient_angle=&quot;$value$&quot;" description="选中状态渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_type" value="app:bl_gradient_type=&quot;$value$&quot;" description="渐变类型" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_centerColor" value="app:bl_checked_gradient_centerColor=&quot;$value$&quot;" description="选中状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_gradient_useLevel" value="app:bl_gradient_useLevel=&quot;$value$&quot;" description="useLevel" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_centerX" value="app:bl_checked_gradient_centerX=&quot;$value$&quot;" description="选中状态渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_size_width" value="app:bl_size_width=&quot;$value$&quot;" description="宽度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_centerY" value="app:bl_checked_gradient_centerY=&quot;$value$&quot;" description="选中状态渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_stroke_width" value="app:bl_stroke_width=&quot;$value$&quot;" description="边框高度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_endColor" value="app:bl_checked_gradient_endColor=&quot;$value$&quot;" description="选中状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_stroke_color" value="app:bl_stroke_color=&quot;$value$&quot;" description="边框颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_gradientRadius" value="app:bl_checked_gradient_gradientRadius=&quot;$value$&quot;" description="选中状态渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_stroke_dashWidth" value="app:bl_stroke_dashWidth=&quot;$value$&quot;" description="边框间隔宽度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_startColor" value="app:bl_checked_gradient_startColor=&quot;$value$&quot;" description="选中状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_stroke_dashGap" value="app:bl_stroke_dashGap=&quot;$value$&quot;" description="stroke_dashGap" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_type" value="app:bl_checked_gradient_type=&quot;$value$&quot;" description="选中状态渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checkable_drawable" value="app:bl_checkable_drawable=&quot;$value$&quot;" description="checkable_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_gradient_useLevel" value="app:bl_checked_gradient_useLevel=&quot;$value$&quot;" description="选中状态是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_drawable" value="app:bl_checked_drawable=&quot;$value$&quot;" description="checked_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_solid_color" value="app:bl_checked_solid_color=&quot;$value$&quot;" description="选中状态填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_drawable" value="app:bl_enabled_drawable=&quot;$value$&quot;" description="enabled_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_stroke_color" value="app:bl_checked_stroke_color=&quot;$value$&quot;" description="选中状态边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_drawable" value="app:bl_selected_drawable=&quot;$value$&quot;" description="selected_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_checked_textColor" value="app:bl_checked_textColor=&quot;$value$&quot;" description="选中状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_drawable" value="app:bl_pressed_drawable=&quot;$value$&quot;" description="pressed_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_bottomLeftRadius" value="app:bl_corners_bottomLeftRadius=&quot;$value$&quot;" description="左下圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_drawable" value="app:bl_focused_drawable=&quot;$value$&quot;" description="focused_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_bottomRadius" value="app:bl_corners_bottomRadius=&quot;$value$&quot;" description="下侧圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_hovered" value="app:bl_focused_hovered=&quot;$value$&quot;" description="focused_hovered" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_bottomRightRadius" value="app:bl_corners_bottomRightRadius=&quot;$value$&quot;" description="右下圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_activated" value="app:bl_focused_activated=&quot;$value$&quot;" description="focused_activated" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_leftRadius" value="app:bl_corners_leftRadius=&quot;$value$&quot;" description="左侧圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_drawable" value="app:bl_unCheckable_drawable=&quot;$value$&quot;" description="unCheckable_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_radius" value="app:bl_corners_radius=&quot;$value$&quot;" description="圆角半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_drawable" value="app:bl_unChecked_drawable=&quot;$value$&quot;" description="unChecked_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_rightRadius" value="app:bl_corners_rightRadius=&quot;$value$&quot;" description="右侧圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_drawable" value="app:bl_unEnabled_drawable=&quot;$value$&quot;" description="unEnabled_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_topLeftRadius" value="app:bl_corners_topLeftRadius=&quot;$value$&quot;" description="左上圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_drawable" value="app:bl_unSelected_drawable=&quot;$value$&quot;" description="unSelected_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_topRadius" value="app:bl_corners_topRadius=&quot;$value$&quot;" description="上侧圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_drawable" value="app:bl_unPressed_drawable=&quot;$value$&quot;" description="unPressed_drawable" toReformat="true" toShortenFQNames="true">
+  <template name="bl_corners_topRightRadius" value="app:bl_corners_topRightRadius=&quot;$value$&quot;" description="右上圆角" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_drawable" value="app:bl_unFocused_drawable=&quot;$value$&quot;" description="unFocused_drawable" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_hovered" value="app:bl_unFocused_hovered=&quot;$value$&quot;" description="unFocused_hovered" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_activated" value="app:bl_unFocused_activated=&quot;$value$&quot;" description="unFocused_activated" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_ripple_enable" value="app:bl_ripple_enable=&quot;$value$&quot;" description="水波纹效果" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_ripple_color" value="app:bl_ripple_color=&quot;$value$&quot;" description="水波纹颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checkable_stroke_color" value="app:bl_checkable_stroke_color=&quot;$value$&quot;" description="边框状态的属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checked_stroke_color" value="app:bl_checked_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_enabled_stroke_color" value="app:bl_enabled_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_selected_stroke_color" value="app:bl_selected_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_pressed_stroke_color" value="app:bl_pressed_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_focused_stroke_color" value="app:bl_focused_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unCheckable_stroke_color" value="app:bl_unCheckable_stroke_color=&quot;$value$&quot;" description="边框状态的属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unChecked_stroke_color" value="app:bl_unChecked_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unEnabled_stroke_color" value="app:bl_unEnabled_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unSelected_stroke_color" value="app:bl_unSelected_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unPressed_stroke_color" value="app:bl_unPressed_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_stroke_color" value="app:bl_unFocused_stroke_color=&quot;$value$&quot;" description="边框状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checked_button_drawable" value="app:bl_checked_button_drawable=&quot;$value$&quot;" description="buttonDrawable属性" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unChecked_button_drawable" value="app:bl_unChecked_button_drawable=&quot;$value$&quot;" description="buttonDrawable属性" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checkable_textColor" value="app:bl_checkable_textColor=&quot;$value$&quot;" description="checkable文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unCheckable_textColor" value="app:bl_unCheckable_textColor=&quot;$value$&quot;" description="unCheckable文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checked_textColor" value="app:bl_checked_textColor=&quot;$value$&quot;" description="checked文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unChecked_textColor" value="app:bl_unChecked_textColor=&quot;$value$&quot;" description="unChecked文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_enabled_textColor" value="app:bl_enabled_textColor=&quot;$value$&quot;" description="enabled文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unEnabled_textColor" value="app:bl_unEnabled_textColor=&quot;$value$&quot;" description="unEnabled文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_selected_textColor" value="app:bl_selected_textColor=&quot;$value$&quot;" description="selected文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unSelected_textColor" value="app:bl_unSelected_textColor=&quot;$value$&quot;" description="unSelected文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_pressed_textColor" value="app:bl_pressed_textColor=&quot;$value$&quot;" description="pressed文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unPressed_textColor" value="app:bl_unPressed_textColor=&quot;$value$&quot;" description="unPressed文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_focused_textColor" value="app:bl_focused_textColor=&quot;$value$&quot;" description="focused文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_textColor" value="app:bl_unFocused_textColor=&quot;$value$&quot;" description="unFocused文字颜色" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checked_solid_color" value="app:bl_checked_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unChecked_solid_color" value="app:bl_unChecked_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checkable_solid_color" value="app:bl_checkable_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unCheckable_solid_color" value="app:bl_unCheckable_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_enabled_solid_color" value="app:bl_enabled_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unEnabled_solid_color" value="app:bl_unEnabled_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unSelected_solid_color" value="app:bl_unSelected_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_selected_solid_color" value="app:bl_selected_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unPressed_solid_color" value="app:bl_unPressed_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_pressed_solid_color" value="app:bl_pressed_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_focused_solid_color" value="app:bl_focused_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_solid_color" value="app:bl_unFocused_solid_color=&quot;$value$&quot;" description="填充颜色状态属性" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_position" value="app:bl_position=&quot;$value$&quot;" description="drawable位置" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_oneshot" value="app:bl_oneshot=&quot;$value$&quot;" description="是否只播放一次" toReformat="false" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration" value="app:bl_duration=&quot;$value$&quot;" description="每一帧动画时长" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration" value="app:bl_duration=&quot;$value$&quot;" description="动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
@@ -515,55 +245,7 @@
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_duration_item02" value="app:bl_duration_item02=&quot;$value$&quot;" description="第2帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item01" value="app:bl_duration_item01=&quot;$value$&quot;" description="第1帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item03" value="app:bl_duration_item03=&quot;$value$&quot;" description="第3帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item04" value="app:bl_duration_item04=&quot;$value$&quot;" description="第4帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item05" value="app:bl_duration_item05=&quot;$value$&quot;" description="第5帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item06" value="app:bl_duration_item06=&quot;$value$&quot;" description="第6帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item07" value="app:bl_duration_item07=&quot;$value$&quot;" description="第7帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item08" value="app:bl_duration_item08=&quot;$value$&quot;" description="第8帧动画时长" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_duration_item09" value="app:bl_duration_item09=&quot;$value$&quot;" description="第9帧动画时长" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item1" value="app:bl_duration_item1=&quot;$value$&quot;" description="第1帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
@@ -599,922 +281,763 @@
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item0" value="app:bl_frame_drawable_item0=&quot;$value$&quot;" description="第0帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item2" value="app:bl_duration_item2=&quot;$value$&quot;" description="第2帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item1" value="app:bl_frame_drawable_item1=&quot;$value$&quot;" description="第1帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item3" value="app:bl_duration_item3=&quot;$value$&quot;" description="第3帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item2" value="app:bl_frame_drawable_item2=&quot;$value$&quot;" description="第2帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item4" value="app:bl_duration_item4=&quot;$value$&quot;" description="第4帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item3" value="app:bl_frame_drawable_item3=&quot;$value$&quot;" description="第3帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item5" value="app:bl_duration_item5=&quot;$value$&quot;" description="第5帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item4" value="app:bl_frame_drawable_item4=&quot;$value$&quot;" description="第4帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item6" value="app:bl_duration_item6=&quot;$value$&quot;" description="第6帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item5" value="app:bl_frame_drawable_item5=&quot;$value$&quot;" description="第5帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item7" value="app:bl_duration_item7=&quot;$value$&quot;" description="第7帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item6" value="app:bl_frame_drawable_item6=&quot;$value$&quot;" description="第6帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item8" value="app:bl_duration_item8=&quot;$value$&quot;" description="第8帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item7" value="app:bl_frame_drawable_item7=&quot;$value$&quot;" description="第7帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_duration_item9" value="app:bl_duration_item9=&quot;$value$&quot;" description="第9帧动画时长" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item8" value="app:bl_frame_drawable_item8=&quot;$value$&quot;" description="第8帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_drawable" value="app:bl_enabled_drawable=&quot;$value$&quot;" description="启用状态drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item9" value="app:bl_frame_drawable_item9=&quot;$value$&quot;" description="第9帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_angle" value="app:bl_enabled_gradient_angle=&quot;$value$&quot;" description="启用状态渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item10" value="app:bl_frame_drawable_item10=&quot;$value$&quot;" description="第10帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_centerColor" value="app:bl_enabled_gradient_centerColor=&quot;$value$&quot;" description="启用状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item11" value="app:bl_frame_drawable_item11=&quot;$value$&quot;" description="第11帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_centerX" value="app:bl_enabled_gradient_centerX=&quot;$value$&quot;" description="启用状态渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item12" value="app:bl_frame_drawable_item12=&quot;$value$&quot;" description="第12帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_centerY" value="app:bl_enabled_gradient_centerY=&quot;$value$&quot;" description="启用状态渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item13" value="app:bl_frame_drawable_item13=&quot;$value$&quot;" description="第13帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_endColor" value="app:bl_enabled_gradient_endColor=&quot;$value$&quot;" description="启用状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_frame_drawable_item14" value="app:bl_frame_drawable_item14=&quot;$value$&quot;" description="第14帧动画" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_gradientRadius" value="app:bl_enabled_gradient_gradientRadius=&quot;$value$&quot;" description="启用状态渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_activated_textColor" value="app:bl_activated_textColor=&quot;$value$&quot;" description="activated文字颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_startColor" value="app:bl_enabled_gradient_startColor=&quot;$value$&quot;" description="启用状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unActivated_textColor" value="app:bl_unActivated_textColor=&quot;$value$&quot;" description="unActivated文字颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_type" value="app:bl_enabled_gradient_type=&quot;$value$&quot;" description="启用状态渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_active_textColor" value="app:bl_active_textColor=&quot;$value$&quot;" description="active文字颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_gradient_useLevel" value="app:bl_enabled_gradient_useLevel=&quot;$value$&quot;" description="启用状态是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unActive_textColor" value="app:bl_unActive_textColor=&quot;$value$&quot;" description="unActive文字颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_solid_color" value="app:bl_enabled_solid_color=&quot;$value$&quot;" description="启用状态填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_expanded_textColor" value="app:bl_expanded_textColor=&quot;$value$&quot;" description="expanded文字颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_stroke_color" value="app:bl_enabled_stroke_color=&quot;$value$&quot;" description="启用状态边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unExpanded_textColor" value="app:bl_unExpanded_textColor=&quot;$value$&quot;" description="unExpanded文字颜色" toReformat="true" toShortenFQNames="true">
-  <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-  <context>
-    <option name="XML" value="true" />
-  </context>
-</template>
-  <template name="bl_multi_text_selector1" value="app:bl_multi_text_selector1=&quot;$value$&quot;" description="textColor一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_enabled_textColor" value="app:bl_enabled_textColor=&quot;$value$&quot;" description="启用状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_text_selector2" value="app:bl_multi_text_selector2=&quot;$value$&quot;" description="textColor一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_expanded_textColor" value="app:bl_expanded_textColor=&quot;$value$&quot;" description="展开状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_text_selector3" value="app:bl_multi_text_selector3=&quot;$value$&quot;" description="textColor一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_activated" value="app:bl_focused_activated=&quot;$value$&quot;" description="聚焦状态激活drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_text_selector4" value="app:bl_multi_text_selector4=&quot;$value$&quot;" description="textColor一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_drawable" value="app:bl_focused_drawable=&quot;$value$&quot;" description="聚焦状态drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_text_selector5" value="app:bl_multi_text_selector5=&quot;$value$&quot;" description="textColor一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_angle" value="app:bl_focused_gradient_angle=&quot;$value$&quot;" description="聚焦状态渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_text_selector6" value="app:bl_multi_text_selector6=&quot;$value$&quot;" description="textColor一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_centerColor" value="app:bl_focused_gradient_centerColor=&quot;$value$&quot;" description="聚焦状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_selector1" value="app:bl_multi_selector1=&quot;$value$&quot;" description="selector一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_centerX" value="app:bl_focused_gradient_centerX=&quot;$value$&quot;" description="聚焦状态渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_selector2" value="app:bl_multi_selector2=&quot;$value$&quot;" description="selector一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_centerY" value="app:bl_focused_gradient_centerY=&quot;$value$&quot;" description="聚焦状态渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_selector3" value="app:bl_multi_selector3=&quot;$value$&quot;" description="selector一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_endColor" value="app:bl_focused_gradient_endColor=&quot;$value$&quot;" description="聚焦状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_selector4" value="app:bl_multi_selector4=&quot;$value$&quot;" description="selector一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_gradientRadius" value="app:bl_focused_gradient_gradientRadius=&quot;$value$&quot;" description="聚焦状态渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_selector5" value="app:bl_multi_selector5=&quot;$value$&quot;" description="selector一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_startColor" value="app:bl_focused_gradient_startColor=&quot;$value$&quot;" description="聚焦状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_multi_selector6" value="app:bl_multi_selector6=&quot;$value$&quot;" description="selector一条属性多状态表示" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_type" value="app:bl_focused_gradient_type=&quot;$value$&quot;" description="聚焦状态渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_stroke_position" value="app:bl_stroke_position=&quot;$value$&quot;" description="指定显示某个方向的边框" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_gradient_useLevel" value="app:bl_focused_gradient_useLevel=&quot;$value$&quot;" description="聚焦状态是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_function" value="app:bl_function=&quot;$value$&quot;" description="点击事件的方法名" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_hovered" value="app:bl_focused_hovered=&quot;$value$&quot;" description="聚焦状态悬停drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_padding_left" value="app:bl_padding_left=&quot;$value$&quot;" description="paddingLeft属性" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_solid_color" value="app:bl_focused_solid_color=&quot;$value$&quot;" description="聚焦状态填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_padding_top" value="app:bl_padding_top=&quot;$value$&quot;" description="paddingTop属性" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_stroke_color" value="app:bl_focused_stroke_color=&quot;$value$&quot;" description="聚焦状态边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_padding_bottom" value="app:bl_padding_bottom=&quot;$value$&quot;" description="paddingBottom属性" toReformat="true" toShortenFQNames="true">
+  <template name="bl_focused_textColor" value="app:bl_focused_textColor=&quot;$value$&quot;" description="聚焦状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_padding_right" value="app:bl_padding_right=&quot;$value$&quot;" description="paddingRight属性" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item0" value="app:bl_frame_drawable_item0=&quot;$value$&quot;" description="第0帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_angle" value="app:bl_checkable_gradient_angle=&quot;$value$&quot;" description="checkable状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item1" value="app:bl_frame_drawable_item1=&quot;$value$&quot;" description="第1帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_angle" value="app:bl_checked_gradient_angle=&quot;$value$&quot;" description="checked状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item10" value="app:bl_frame_drawable_item10=&quot;$value$&quot;" description="第10帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_angle" value="app:bl_enabled_gradient_angle=&quot;$value$&quot;" description="enabled状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item11" value="app:bl_frame_drawable_item11=&quot;$value$&quot;" description="第11帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_angle" value="app:bl_selected_gradient_angle=&quot;$value$&quot;" description="selected状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item12" value="app:bl_frame_drawable_item12=&quot;$value$&quot;" description="第12帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_angle" value="app:bl_pressed_gradient_angle=&quot;$value$&quot;" description="pressed状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item13" value="app:bl_frame_drawable_item13=&quot;$value$&quot;" description="第13帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_angle" value="app:bl_focused_gradient_angle=&quot;$value$&quot;" description="focused状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item14" value="app:bl_frame_drawable_item14=&quot;$value$&quot;" description="第14帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_angle" value="app:bl_unCheckable_gradient_angle=&quot;$value$&quot;" description="unCheckable状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item2" value="app:bl_frame_drawable_item2=&quot;$value$&quot;" description="第2帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_angle" value="app:bl_unChecked_gradient_angle=&quot;$value$&quot;" description="unChecked状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item3" value="app:bl_frame_drawable_item3=&quot;$value$&quot;" description="第3帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_angle" value="app:bl_unEnabled_gradient_angle=&quot;$value$&quot;" description="unEnabled状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item4" value="app:bl_frame_drawable_item4=&quot;$value$&quot;" description="第4帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_angle" value="app:bl_unSelected_gradient_angle=&quot;$value$&quot;" description="unSelected状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item5" value="app:bl_frame_drawable_item5=&quot;$value$&quot;" description="第5帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_angle" value="app:bl_unPressed_gradient_angle=&quot;$value$&quot;" description="unPressed状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item6" value="app:bl_frame_drawable_item6=&quot;$value$&quot;" description="第6帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_angle" value="app:bl_unFocused_gradient_angle=&quot;$value$&quot;" description="unFocused状态的渐变角度" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item7" value="app:bl_frame_drawable_item7=&quot;$value$&quot;" description="第7帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_centerX" value="app:bl_checkable_gradient_centerX=&quot;$value$&quot;" description="checkable状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item8" value="app:bl_frame_drawable_item8=&quot;$value$&quot;" description="第8帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_centerX" value="app:bl_checked_gradient_centerX=&quot;$value$&quot;" description="checked状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_frame_drawable_item9" value="app:bl_frame_drawable_item9=&quot;$value$&quot;" description="第9帧动画drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_centerX" value="app:bl_enabled_gradient_centerX=&quot;$value$&quot;" description="enabled状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_function" value="app:bl_function=&quot;$value$&quot;" description="方法名" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_centerX" value="app:bl_selected_gradient_centerX=&quot;$value$&quot;" description="selected状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_angle" value="app:bl_gradient_angle=&quot;$value$&quot;" description="渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_centerX" value="app:bl_pressed_gradient_centerX=&quot;$value$&quot;" description="pressed状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_centerColor" value="app:bl_gradient_centerColor=&quot;$value$&quot;" description="渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_centerX" value="app:bl_focused_gradient_centerX=&quot;$value$&quot;" description="focused状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_centerX" value="app:bl_gradient_centerX=&quot;$value$&quot;" description="渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_centerX" value="app:bl_unCheckable_gradient_centerX=&quot;$value$&quot;" description="unCheckable状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_centerY" value="app:bl_gradient_centerY=&quot;$value$&quot;" description="渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_centerX" value="app:bl_unChecked_gradient_centerX=&quot;$value$&quot;" description="unChecked状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_endColor" value="app:bl_gradient_endColor=&quot;$value$&quot;" description="渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_centerX" value="app:bl_unEnabled_gradient_centerX=&quot;$value$&quot;" description="unEnabled状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_gradientRadius" value="app:bl_gradient_gradientRadius=&quot;$value$&quot;" description="渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_centerX" value="app:bl_unSelected_gradient_centerX=&quot;$value$&quot;" description="unSelected状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_startColor" value="app:bl_gradient_startColor=&quot;$value$&quot;" description="渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_centerX" value="app:bl_unPressed_gradient_centerX=&quot;$value$&quot;" description="unPressed状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_type" value="app:bl_gradient_type=&quot;$value$&quot;" description="渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_centerX" value="app:bl_unFocused_gradient_centerX=&quot;$value$&quot;" description="unFocused状态的中心x" toReformat="true" toShortenFQNames="true">
+  <template name="bl_gradient_useLevel" value="app:bl_gradient_useLevel=&quot;$value$&quot;" description="是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_centerY" value="app:bl_checkable_gradient_centerY=&quot;$value$&quot;" description="checkable状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_selector1" value="app:bl_multi_selector1=&quot;$value$&quot;" description="多状态选择器1" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_centerY" value="app:bl_checked_gradient_centerY=&quot;$value$&quot;" description="checked状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_selector2" value="app:bl_multi_selector2=&quot;$value$&quot;" description="多状态选择器2" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_centerY" value="app:bl_enabled_gradient_centerY=&quot;$value$&quot;" description="enabled状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_selector3" value="app:bl_multi_selector3=&quot;$value$&quot;" description="多状态选择器3" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_centerY" value="app:bl_selected_gradient_centerY=&quot;$value$&quot;" description="selected状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_selector4" value="app:bl_multi_selector4=&quot;$value$&quot;" description="多状态选择器4" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_centerY" value="app:bl_pressed_gradient_centerY=&quot;$value$&quot;" description="pressed状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_selector5" value="app:bl_multi_selector5=&quot;$value$&quot;" description="多状态选择器5" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_centerY" value="app:bl_focused_gradient_centerY=&quot;$value$&quot;" description="focused状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_selector6" value="app:bl_multi_selector6=&quot;$value$&quot;" description="多状态选择器6" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_centerY" value="app:bl_unCheckable_gradient_centerY=&quot;$value$&quot;" description="unCheckable状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_text_selector1" value="app:bl_multi_text_selector1=&quot;$value$&quot;" description="多文本状态选择器1" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_centerY" value="app:bl_unChecked_gradient_centerY=&quot;$value$&quot;" description="unChecked状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_text_selector2" value="app:bl_multi_text_selector2=&quot;$value$&quot;" description="多文本状态选择器2" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_centerY" value="app:bl_unEnabled_gradient_centerY=&quot;$value$&quot;" description="unEnabled状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_text_selector3" value="app:bl_multi_text_selector3=&quot;$value$&quot;" description="多文本状态选择器3" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_centerY" value="app:bl_unSelected_gradient_centerY=&quot;$value$&quot;" description="unSelected状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_text_selector4" value="app:bl_multi_text_selector4=&quot;$value$&quot;" description="多文本状态选择器4" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_centerY" value="app:bl_unPressed_gradient_centerY=&quot;$value$&quot;" description="unPressed状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_text_selector5" value="app:bl_multi_text_selector5=&quot;$value$&quot;" description="多文本状态选择器5" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_centerY" value="app:bl_unFocused_gradient_centerY=&quot;$value$&quot;" description="unFocused状态的中心y" toReformat="true" toShortenFQNames="true">
+  <template name="bl_multi_text_selector6" value="app:bl_multi_text_selector6=&quot;$value$&quot;" description="多文本状态选择器6" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_centerColor" value="app:bl_checkable_gradient_centerColor=&quot;$value$&quot;" description="checkable状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_oneshot" value="app:bl_oneshot=&quot;$value$&quot;" description="是否单次播放" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_centerColor" value="app:bl_checked_gradient_centerColor=&quot;$value$&quot;" description="checked状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_padding_bottom" value="app:bl_padding_bottom=&quot;$value$&quot;" description="下内边距" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_centerColor" value="app:bl_enabled_gradient_centerColor=&quot;$value$&quot;" description="enabled状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_padding_left" value="app:bl_padding_left=&quot;$value$&quot;" description="左内边距" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_centerColor" value="app:bl_selected_gradient_centerColor=&quot;$value$&quot;" description="selected状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_padding_right" value="app:bl_padding_right=&quot;$value$&quot;" description="右内边距" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_centerColor" value="app:bl_pressed_gradient_centerColor=&quot;$value$&quot;" description="pressed状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_padding_top" value="app:bl_padding_top=&quot;$value$&quot;" description="上内边距" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_centerColor" value="app:bl_focused_gradient_centerColor=&quot;$value$&quot;" description="focused状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_position" value="app:bl_position=&quot;$value$&quot;" description="位置" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_centerColor" value="app:bl_unCheckable_gradient_centerColor=&quot;$value$&quot;" description="unCheckable状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_color" value="app:bl_pressed_color=&quot;$value$&quot;" description="按下颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_centerColor" value="app:bl_unChecked_gradient_centerColor=&quot;$value$&quot;" description="unChecked状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_drawable" value="app:bl_pressed_drawable=&quot;$value$&quot;" description="按下状态drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_centerColor" value="app:bl_unEnabled_gradient_centerColor=&quot;$value$&quot;" description="unEnabled状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_angle" value="app:bl_pressed_gradient_angle=&quot;$value$&quot;" description="按下状态渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_centerColor" value="app:bl_unSelected_gradient_centerColor=&quot;$value$&quot;" description="unSelected状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_centerColor" value="app:bl_pressed_gradient_centerColor=&quot;$value$&quot;" description="按下状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_centerColor" value="app:bl_unPressed_gradient_centerColor=&quot;$value$&quot;" description="unPressed状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_centerX" value="app:bl_pressed_gradient_centerX=&quot;$value$&quot;" description="按下状态渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_centerColor" value="app:bl_unFocused_gradient_centerColor=&quot;$value$&quot;" description="unFocused状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_centerY" value="app:bl_pressed_gradient_centerY=&quot;$value$&quot;" description="按下状态渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_endColor" value="app:bl_checkable_gradient_endColor=&quot;$value$&quot;" description="checkable状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_endColor" value="app:bl_pressed_gradient_endColor=&quot;$value$&quot;" description="按下状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_endColor" value="app:bl_checked_gradient_endColor=&quot;$value$&quot;" description="checked状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_gradientRadius" value="app:bl_pressed_gradient_gradientRadius=&quot;$value$&quot;" description="按下状态渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_endColor" value="app:bl_enabled_gradient_endColor=&quot;$value$&quot;" description="enabled状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_startColor" value="app:bl_pressed_gradient_startColor=&quot;$value$&quot;" description="按下状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_endColor" value="app:bl_selected_gradient_endColor=&quot;$value$&quot;" description="selected状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_type" value="app:bl_pressed_gradient_type=&quot;$value$&quot;" description="按下状态渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_endColor" value="app:bl_pressed_gradient_endColor=&quot;$value$&quot;" description="pressed状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_gradient_useLevel" value="app:bl_pressed_gradient_useLevel=&quot;$value$&quot;" description="按下状态是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_endColor" value="app:bl_focused_gradient_endColor=&quot;$value$&quot;" description="focused状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_solid_color" value="app:bl_pressed_solid_color=&quot;$value$&quot;" description="按下状态填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_endColor" value="app:bl_unCheckable_gradient_endColor=&quot;$value$&quot;" description="unCheckable状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_stroke_color" value="app:bl_pressed_stroke_color=&quot;$value$&quot;" description="按下状态边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_endColor" value="app:bl_unChecked_gradient_endColor=&quot;$value$&quot;" description="unChecked状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_pressed_textColor" value="app:bl_pressed_textColor=&quot;$value$&quot;" description="按下状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_endColor" value="app:bl_unEnabled_gradient_endColor=&quot;$value$&quot;" description="unEnabled状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_ripple_color" value="app:bl_ripple_color=&quot;$value$&quot;" description="ripple颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_endColor" value="app:bl_unSelected_gradient_endColor=&quot;$value$&quot;" description="unSelected状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_ripple_enable" value="app:bl_ripple_enable=&quot;$value$&quot;" description="是否使用ripple" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_endColor" value="app:bl_unPressed_gradient_endColor=&quot;$value$&quot;" description="unPressed状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_drawable" value="app:bl_selected_drawable=&quot;$value$&quot;" description="选择状态drawable" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_endColor" value="app:bl_unFocused_gradient_endColor=&quot;$value$&quot;" description="unFocused状态的结束颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_angle" value="app:bl_selected_gradient_angle=&quot;$value$&quot;" description="选择状态渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_startColor" value="app:bl_checkable_gradient_startColor=&quot;$value$&quot;" description="checkable状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_centerColor" value="app:bl_selected_gradient_centerColor=&quot;$value$&quot;" description="选择状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_startColor" value="app:bl_checked_gradient_startColor=&quot;$value$&quot;" description="checked状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_centerX" value="app:bl_selected_gradient_centerX=&quot;$value$&quot;" description="选择状态渐变中心X" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_startColor" value="app:bl_enabled_gradient_startColor=&quot;$value$&quot;" description="enabled状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_centerY" value="app:bl_selected_gradient_centerY=&quot;$value$&quot;" description="选择状态渐变中心Y" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_startColor" value="app:bl_selected_gradient_startColor=&quot;$value$&quot;" description="selected状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_endColor" value="app:bl_selected_gradient_endColor=&quot;$value$&quot;" description="选择状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_startColor" value="app:bl_pressed_gradient_startColor=&quot;$value$&quot;" description="pressed状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_gradientRadius" value="app:bl_selected_gradient_gradientRadius=&quot;$value$&quot;" description="选择状态渐变半径" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_startColor" value="app:bl_focused_gradient_startColor=&quot;$value$&quot;" description="focused状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_startColor" value="app:bl_selected_gradient_startColor=&quot;$value$&quot;" description="选择状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_startColor" value="app:bl_unCheckable_gradient_startColor=&quot;$value$&quot;" description="unCheckable状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_type" value="app:bl_selected_gradient_type=&quot;$value$&quot;" description="选择状态渐变类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_startColor" value="app:bl_unChecked_gradient_startColor=&quot;$value$&quot;" description="unChecked状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_gradient_useLevel" value="app:bl_selected_gradient_useLevel=&quot;$value$&quot;" description="选择状态是否使用level" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_startColor" value="app:bl_unEnabled_gradient_startColor=&quot;$value$&quot;" description="unEnabled状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_solid_color" value="app:bl_selected_solid_color=&quot;$value$&quot;" description="选择状态填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_startColor" value="app:bl_unSelected_gradient_startColor=&quot;$value$&quot;" description="unSelected状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_stroke_color" value="app:bl_selected_stroke_color=&quot;$value$&quot;" description="选择状态边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_startColor" value="app:bl_unPressed_gradient_startColor=&quot;$value$&quot;" description="unPressed状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_selected_textColor" value="app:bl_selected_textColor=&quot;$value$&quot;" description="选择状态文字颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_startColor" value="app:bl_unFocused_gradient_startColor=&quot;$value$&quot;" description="unFocused状态的开始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_shadow_color" value="app:bl_shadow_color=&quot;$value$&quot;" description="阴影颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_gradientRadius" value="app:bl_checkable_gradient_gradientRadius=&quot;$value$&quot;" description="checkable状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_shadow_offsetX" value="app:bl_shadow_offsetX=&quot;$value$&quot;" description="阴影X偏移" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_gradientRadius" value="app:bl_checked_gradient_gradientRadius=&quot;$value$&quot;" description="checked状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_shadow_offsetY" value="app:bl_shadow_offsetY=&quot;$value$&quot;" description="阴影Y偏移" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_gradientRadius" value="app:bl_enabled_gradient_gradientRadius=&quot;$value$&quot;" description="enabled状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_shadow_size" value="app:bl_shadow_size=&quot;$value$&quot;" description="阴影大小" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_gradientRadius" value="app:bl_selected_gradient_gradientRadius=&quot;$value$&quot;" description="selected状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_shape" value="app:bl_shape=&quot;$value$&quot;" description="shape类型" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_gradientRadius" value="app:bl_pressed_gradient_gradientRadius=&quot;$value$&quot;" description="pressed状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_shape_alpha" value="app:bl_shape_alpha=&quot;$value$&quot;" description="shape透明度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_focused_gradient_gradientRadius" value="app:bl_focused_gradient_gradientRadius=&quot;$value$&quot;" description="focused状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_size_height" value="app:bl_size_height=&quot;$value$&quot;" description="高度" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unCheckable_gradient_gradientRadius" value="app:bl_unCheckable_gradient_gradientRadius=&quot;$value$&quot;" description="unCheckable状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_size_width" value="app:bl_size_width=&quot;$value$&quot;" description="宽度" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unChecked_gradient_gradientRadius" value="app:bl_unChecked_gradient_gradientRadius=&quot;$value$&quot;" description="unChecked状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_solid_color" value="app:bl_solid_color=&quot;$value$&quot;" description="填充颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unEnabled_gradient_gradientRadius" value="app:bl_unEnabled_gradient_gradientRadius=&quot;$value$&quot;" description="unEnabled状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_color" value="app:bl_stroke_color=&quot;$value$&quot;" description="边框颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unSelected_gradient_gradientRadius" value="app:bl_unSelected_gradient_gradientRadius=&quot;$value$&quot;" description="unSelected状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_dashGap" value="app:bl_stroke_dashGap=&quot;$value$&quot;" description="边框虚线间隔" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unPressed_gradient_gradientRadius" value="app:bl_unPressed_gradient_gradientRadius=&quot;$value$&quot;" description="unPressed状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_dashWidth" value="app:bl_stroke_dashWidth=&quot;$value$&quot;" description="边框虚线宽度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_unFocused_gradient_gradientRadius" value="app:bl_unFocused_gradient_gradientRadius=&quot;$value$&quot;" description="unFocused状态的圆角大小" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_gradient_angle" value="app:bl_stroke_gradient_angle=&quot;$value$&quot;" description="描边渐变角度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-
-  <template name="bl_checkable_gradient_type" value="app:bl_checkable_gradient_type=&quot;$value$&quot;" description="checkable状态的渐变类型" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_gradient_centerColor" value="app:bl_stroke_gradient_centerColor=&quot;$value$&quot;" description="描边渐变中间颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_checked_gradient_type" value="app:bl_checked_gradient_type=&quot;$value$&quot;" description="checked状态的渐变类型" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_gradient_endColor" value="app:bl_stroke_gradient_endColor=&quot;$value$&quot;" description="描边渐变结束颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_enabled_gradient_type" value="app:bl_enabled_gradient_type=&quot;$value$&quot;" description="enabled状态的渐变类型" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_gradient_startColor" value="app:bl_stroke_gradient_startColor=&quot;$value$&quot;" description="描边渐变开始颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_selected_gradient_type" value="app:bl_selected_gradient_type=&quot;$value$&quot;" description="selected状态的渐变类型" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_position" value="app:bl_stroke_position=&quot;$value$&quot;" description="边框位置" toReformat="false" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_pressed_gradient_type" value="app:bl_pressed_gradient_type=&quot;$value$&quot;" description="pressed状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_focused_gradient_type" value="app:bl_focused_gradient_type=&quot;$value$&quot;" description="focused状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unCheckable_gradient_type" value="app:bl_unCheckable_gradient_type=&quot;$value$&quot;" description="unCheckable状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unChecked_gradient_type" value="app:bl_unChecked_gradient_type=&quot;$value$&quot;" description="unChecked状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unEnabled_gradient_type" value="app:bl_unEnabled_gradient_type=&quot;$value$&quot;" description="unEnabled状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unSelected_gradient_type" value="app:bl_unSelected_gradient_type=&quot;$value$&quot;" description="unSelected状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unPressed_gradient_type" value="app:bl_unPressed_gradient_type=&quot;$value$&quot;" description="unPressed状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_gradient_type" value="app:bl_unFocused_gradient_type=&quot;$value$&quot;" description="unFocused状态的渐变类型" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-
-  <template name="bl_checkable_gradient_useLevel" value="app:bl_checkable_gradient_useLevel=&quot;$value$&quot;" description="checkable状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_checked_gradient_useLevel" value="app:bl_checked_gradient_useLevel=&quot;$value$&quot;" description="checked状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_enabled_gradient_useLevel" value="app:bl_enabled_gradient_useLevel=&quot;$value$&quot;" description="enabled状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_selected_gradient_useLevel" value="app:bl_selected_gradient_useLevel=&quot;$value$&quot;" description="selected状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_pressed_gradient_useLevel" value="app:bl_pressed_gradient_useLevel=&quot;$value$&quot;" description="pressed状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_focused_gradient_useLevel" value="app:bl_focused_gradient_useLevel=&quot;$value$&quot;" description="focused状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unCheckable_gradient_useLevel" value="app:bl_unCheckable_gradient_useLevel=&quot;$value$&quot;" description="unCheckable状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unChecked_gradient_useLevel" value="app:bl_unChecked_gradient_useLevel=&quot;$value$&quot;" description="unChecked状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unEnabled_gradient_useLevel" value="app:bl_unEnabled_gradient_useLevel=&quot;$value$&quot;" description="unEnabled状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unSelected_gradient_useLevel" value="app:bl_unSelected_gradient_useLevel=&quot;$value$&quot;" description="unSelected状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unPressed_gradient_useLevel" value="app:bl_unPressed_gradient_useLevel=&quot;$value$&quot;" description="unPressed状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_unFocused_gradient_useLevel" value="app:bl_unFocused_gradient_useLevel=&quot;$value$&quot;" description="unFocused状态的useLevel" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_corners_leftRadius" value="app:bl_corners_leftRadius=&quot;$value$&quot;" description="左边的圆角" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_corners_topRadius" value="app:bl_corners_topRadius=&quot;$value$&quot;" description="上方的圆角" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_corners_rightRadius" value="app:bl_corners_rightRadius=&quot;$value$&quot;" description="右边的圆角" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_corners_bottomRadius" value="app:bl_corners_bottomRadius=&quot;$value$&quot;" description="下方的圆角" toReformat="true" toShortenFQNames="true">
-    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
-  <template name="bl_text_gradient_startColor" value="app:bl_text_gradient_startColor=&quot;$value$&quot;" description="文字渐变起始颜色" toReformat="true" toShortenFQNames="true">
+  <template name="bl_stroke_width" value="app:bl_stroke_width=&quot;$value$&quot;" description="边框宽度" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
@@ -1526,7 +1049,523 @@
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="bl_text_gradient_orientation" value="app:bl_text_gradient_orientation=&quot;$value$&quot;" description="文字渐变方向" toReformat="true" toShortenFQNames="true">
+  <template name="bl_text_gradient_orientation" value="app:bl_text_gradient_orientation=&quot;$value$&quot;" description="文字渐变方向" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_text_gradient_startColor" value="app:bl_text_gradient_startColor=&quot;$value$&quot;" description="文字渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unActivated_textColor" value="app:bl_unActivated_textColor=&quot;$value$&quot;" description="未激活状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unActive_textColor" value="app:bl_unActive_textColor=&quot;$value$&quot;" description="未活动状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_drawable" value="app:bl_unCheckable_drawable=&quot;$value$&quot;" description="不可选中状态drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_angle" value="app:bl_unCheckable_gradient_angle=&quot;$value$&quot;" description="不可选中状态渐变角度" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_centerColor" value="app:bl_unCheckable_gradient_centerColor=&quot;$value$&quot;" description="不可选中状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_centerX" value="app:bl_unCheckable_gradient_centerX=&quot;$value$&quot;" description="不可选中状态渐变中心X" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_centerY" value="app:bl_unCheckable_gradient_centerY=&quot;$value$&quot;" description="不可选中状态渐变中心Y" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_endColor" value="app:bl_unCheckable_gradient_endColor=&quot;$value$&quot;" description="不可选中状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_gradientRadius" value="app:bl_unCheckable_gradient_gradientRadius=&quot;$value$&quot;" description="不可选中状态渐变半径" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_startColor" value="app:bl_unCheckable_gradient_startColor=&quot;$value$&quot;" description="不可选中状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_type" value="app:bl_unCheckable_gradient_type=&quot;$value$&quot;" description="不可选中状态渐变类型" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_gradient_useLevel" value="app:bl_unCheckable_gradient_useLevel=&quot;$value$&quot;" description="不可选中状态是否使用level" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_solid_color" value="app:bl_unCheckable_solid_color=&quot;$value$&quot;" description="不可选中状态填充颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_stroke_color" value="app:bl_unCheckable_stroke_color=&quot;$value$&quot;" description="不可选中状态边框颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unCheckable_textColor" value="app:bl_unCheckable_textColor=&quot;$value$&quot;" description="不可选中状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_button_drawable" value="app:bl_unChecked_button_drawable=&quot;$value$&quot;" description="unChecked状态button drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_drawable" value="app:bl_unChecked_drawable=&quot;$value$&quot;" description="未选中状态drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_angle" value="app:bl_unChecked_gradient_angle=&quot;$value$&quot;" description="未选中状态渐变角度" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_centerColor" value="app:bl_unChecked_gradient_centerColor=&quot;$value$&quot;" description="未选中状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_centerX" value="app:bl_unChecked_gradient_centerX=&quot;$value$&quot;" description="未选中状态渐变中心X" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_centerY" value="app:bl_unChecked_gradient_centerY=&quot;$value$&quot;" description="未选中状态渐变中心Y" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_endColor" value="app:bl_unChecked_gradient_endColor=&quot;$value$&quot;" description="未选中状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_gradientRadius" value="app:bl_unChecked_gradient_gradientRadius=&quot;$value$&quot;" description="未选中状态渐变半径" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_startColor" value="app:bl_unChecked_gradient_startColor=&quot;$value$&quot;" description="未选中状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_type" value="app:bl_unChecked_gradient_type=&quot;$value$&quot;" description="未选中状态渐变类型" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_gradient_useLevel" value="app:bl_unChecked_gradient_useLevel=&quot;$value$&quot;" description="未选中状态是否使用level" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_solid_color" value="app:bl_unChecked_solid_color=&quot;$value$&quot;" description="未选中状态填充颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_stroke_color" value="app:bl_unChecked_stroke_color=&quot;$value$&quot;" description="未选中状态边框颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unChecked_textColor" value="app:bl_unChecked_textColor=&quot;$value$&quot;" description="未选中状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_drawable" value="app:bl_unEnabled_drawable=&quot;$value$&quot;" description="未启用状态drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_angle" value="app:bl_unEnabled_gradient_angle=&quot;$value$&quot;" description="未启用状态渐变角度" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_centerColor" value="app:bl_unEnabled_gradient_centerColor=&quot;$value$&quot;" description="未启用状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_centerX" value="app:bl_unEnabled_gradient_centerX=&quot;$value$&quot;" description="未启用状态渐变中心X" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_centerY" value="app:bl_unEnabled_gradient_centerY=&quot;$value$&quot;" description="未启用状态渐变中心Y" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_endColor" value="app:bl_unEnabled_gradient_endColor=&quot;$value$&quot;" description="未启用状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_gradientRadius" value="app:bl_unEnabled_gradient_gradientRadius=&quot;$value$&quot;" description="未启用状态渐变半径" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_startColor" value="app:bl_unEnabled_gradient_startColor=&quot;$value$&quot;" description="未启用状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_type" value="app:bl_unEnabled_gradient_type=&quot;$value$&quot;" description="未启用状态渐变类型" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_gradient_useLevel" value="app:bl_unEnabled_gradient_useLevel=&quot;$value$&quot;" description="未启用状态是否使用level" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_solid_color" value="app:bl_unEnabled_solid_color=&quot;$value$&quot;" description="未启用状态填充颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_stroke_color" value="app:bl_unEnabled_stroke_color=&quot;$value$&quot;" description="未启用状态边框颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unEnabled_textColor" value="app:bl_unEnabled_textColor=&quot;$value$&quot;" description="未启用状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unExpanded_textColor" value="app:bl_unExpanded_textColor=&quot;$value$&quot;" description="未展开状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_activated" value="app:bl_unFocused_activated=&quot;$value$&quot;" description="未聚焦状态激活drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_drawable" value="app:bl_unFocused_drawable=&quot;$value$&quot;" description="未聚焦状态drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_angle" value="app:bl_unFocused_gradient_angle=&quot;$value$&quot;" description="未聚焦状态渐变角度" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_centerColor" value="app:bl_unFocused_gradient_centerColor=&quot;$value$&quot;" description="未聚焦状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_centerX" value="app:bl_unFocused_gradient_centerX=&quot;$value$&quot;" description="未聚焦状态渐变中心X" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_centerY" value="app:bl_unFocused_gradient_centerY=&quot;$value$&quot;" description="未聚焦状态渐变中心Y" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_endColor" value="app:bl_unFocused_gradient_endColor=&quot;$value$&quot;" description="未聚焦状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_gradientRadius" value="app:bl_unFocused_gradient_gradientRadius=&quot;$value$&quot;" description="未聚焦状态渐变半径" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_startColor" value="app:bl_unFocused_gradient_startColor=&quot;$value$&quot;" description="未聚焦状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_type" value="app:bl_unFocused_gradient_type=&quot;$value$&quot;" description="未聚焦状态渐变类型" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_gradient_useLevel" value="app:bl_unFocused_gradient_useLevel=&quot;$value$&quot;" description="未聚焦状态是否使用level" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_hovered" value="app:bl_unFocused_hovered=&quot;$value$&quot;" description="未聚焦状态悬停drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_solid_color" value="app:bl_unFocused_solid_color=&quot;$value$&quot;" description="未聚焦状态填充颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_stroke_color" value="app:bl_unFocused_stroke_color=&quot;$value$&quot;" description="未聚焦状态边框颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unFocused_textColor" value="app:bl_unFocused_textColor=&quot;$value$&quot;" description="未聚焦状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_drawable" value="app:bl_unPressed_drawable=&quot;$value$&quot;" description="未按下状态drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_angle" value="app:bl_unPressed_gradient_angle=&quot;$value$&quot;" description="未按下状态渐变角度" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_centerColor" value="app:bl_unPressed_gradient_centerColor=&quot;$value$&quot;" description="未按下状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_centerX" value="app:bl_unPressed_gradient_centerX=&quot;$value$&quot;" description="未按下状态渐变中心X" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_centerY" value="app:bl_unPressed_gradient_centerY=&quot;$value$&quot;" description="未按下状态渐变中心Y" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_endColor" value="app:bl_unPressed_gradient_endColor=&quot;$value$&quot;" description="未按下状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_gradientRadius" value="app:bl_unPressed_gradient_gradientRadius=&quot;$value$&quot;" description="未按下状态渐变半径" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_startColor" value="app:bl_unPressed_gradient_startColor=&quot;$value$&quot;" description="未按下状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_type" value="app:bl_unPressed_gradient_type=&quot;$value$&quot;" description="未按下状态渐变类型" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_gradient_useLevel" value="app:bl_unPressed_gradient_useLevel=&quot;$value$&quot;" description="未按下状态是否使用level" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_solid_color" value="app:bl_unPressed_solid_color=&quot;$value$&quot;" description="未按下状态填充颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_stroke_color" value="app:bl_unPressed_stroke_color=&quot;$value$&quot;" description="未按下状态边框颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unPressed_textColor" value="app:bl_unPressed_textColor=&quot;$value$&quot;" description="未按下状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_drawable" value="app:bl_unSelected_drawable=&quot;$value$&quot;" description="未选择状态drawable" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_angle" value="app:bl_unSelected_gradient_angle=&quot;$value$&quot;" description="未选择状态渐变角度" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_centerColor" value="app:bl_unSelected_gradient_centerColor=&quot;$value$&quot;" description="未选择状态渐变中间颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_centerX" value="app:bl_unSelected_gradient_centerX=&quot;$value$&quot;" description="未选择状态渐变中心X" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_centerY" value="app:bl_unSelected_gradient_centerY=&quot;$value$&quot;" description="未选择状态渐变中心Y" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_endColor" value="app:bl_unSelected_gradient_endColor=&quot;$value$&quot;" description="未选择状态渐变结束颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_gradientRadius" value="app:bl_unSelected_gradient_gradientRadius=&quot;$value$&quot;" description="未选择状态渐变半径" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_startColor" value="app:bl_unSelected_gradient_startColor=&quot;$value$&quot;" description="未选择状态渐变开始颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_type" value="app:bl_unSelected_gradient_type=&quot;$value$&quot;" description="未选择状态渐变类型" toReformat="false" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_gradient_useLevel" value="app:bl_unSelected_gradient_useLevel=&quot;$value$&quot;" description="未选择状态是否使用level" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_solid_color" value="app:bl_unSelected_solid_color=&quot;$value$&quot;" description="未选择状态填充颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_stroke_color" value="app:bl_unSelected_stroke_color=&quot;$value$&quot;" description="未选择状态边框颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unSelected_textColor" value="app:bl_unSelected_textColor=&quot;$value$&quot;" description="未选择状态文字颜色" toReformat="true" toShortenFQNames="true">
+    <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="bl_unpressed_color" value="app:bl_unpressed_color=&quot;$value$&quot;" description="未按下颜色" toReformat="true" toShortenFQNames="true">
     <variable name="value" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />

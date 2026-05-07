@@ -111,6 +111,12 @@ public class DrawableCreator {
         private Float shadowOffsetX;
         private Float shadowOffsetY;
 
+        // Stroke gradient properties
+        private int strokeGradientStartColor = 0;
+        private int strokeGradientCenterColor = 0;
+        private int strokeGradientEndColor = 0;
+        private int strokeGradientAngle = 0;
+
         private Drawable checkableDrawable;
         private Drawable checkedDrawable;
         private Drawable enabledDrawable;
@@ -516,6 +522,66 @@ public class DrawableCreator {
             return this;
         }
 
+        /**
+         * 设置渐变描边起始颜色
+         */
+        public Builder setStrokeGradientStartColor(int color) {
+            this.strokeGradientStartColor = color;
+            return this;
+        }
+
+        /**
+         * 设置渐变描边中间颜色（可选，不设置则为两色渐变）
+         */
+        public Builder setStrokeGradientCenterColor(int color) {
+            this.strokeGradientCenterColor = color;
+            return this;
+        }
+
+        /**
+         * 设置渐变描边结束颜色
+         */
+        public Builder setStrokeGradientEndColor(int color) {
+            this.strokeGradientEndColor = color;
+            return this;
+        }
+
+        /**
+         * 设置渐变描边角度（0=左到右, 90=下到上, 180=右到左, 270=上到下）
+         */
+        public Builder setStrokeGradientAngle(int angle) {
+            this.strokeGradientAngle = angle;
+            return this;
+        }
+
+        /**
+         * 一次性设置渐变描边所有参数
+         * @param startColor 起始颜色
+         * @param endColor 结束颜色
+         * @param angle 角度
+         */
+        public Builder setStrokeGradient(int startColor, int endColor, int angle) {
+            this.strokeGradientStartColor = startColor;
+            this.strokeGradientEndColor = endColor;
+            this.strokeGradientAngle = angle;
+            return this;
+        }
+
+        /**
+         * 一次性设置三色渐变描边
+         * @param startColor 起始颜色
+         * @param centerColor 中间颜色
+         * @param endColor 结束颜色
+         * @param angle 角度
+         */
+        public Builder setStrokeGradient(int startColor, int centerColor, int endColor, int angle) {
+            this.strokeGradientStartColor = startColor;
+            this.strokeGradientCenterColor = centerColor;
+            this.strokeGradientEndColor = endColor;
+            this.strokeGradientAngle = angle;
+            return this;
+        }
+
         public Builder setShadow(float size, int color, float offsetX, float offsetY) {
             this.shadowSize = size;
             this.shadowColor = color;
@@ -567,6 +633,60 @@ public class DrawableCreator {
             }
 
             Drawable result = drawable == null ? stateListDrawable : drawable;
+
+            // Handle stroke gradient
+            boolean hasStrokeGradient = strokeGradientStartColor != 0 && strokeGradientEndColor != 0
+                    && strokeWidth != null && strokeWidth > 0;
+            if (hasStrokeGradient && result instanceof GradientDrawable) {
+                BLShapeDrawable shapeDrawable = new BLShapeDrawable();
+                shapeDrawable.setStrokeGradient(strokeWidth, strokeGradientStartColor,
+                        strokeGradientCenterColor, strokeGradientEndColor, strokeGradientAngle);
+                shapeDrawable.setBlShape(shape.value);
+                if (cornersBottomLeftRadius != null && cornersBottomRightRadius != null &&
+                        cornersTopLeftRadius != null && cornersTopRightRadius != null) {
+                    float[] radii = new float[8];
+                    radii[0] = cornersTopLeftRadius;
+                    radii[1] = cornersTopLeftRadius;
+                    radii[2] = cornersTopRightRadius;
+                    radii[3] = cornersTopRightRadius;
+                    radii[4] = cornersBottomRightRadius;
+                    radii[5] = cornersBottomRightRadius;
+                    radii[6] = cornersBottomLeftRadius;
+                    radii[7] = cornersBottomLeftRadius;
+                    shapeDrawable.setBlCornerRadii(radii);
+                } else if (cornersRadius != null && cornersRadius > 0) {
+                    shapeDrawable.setBlCornerRadius(cornersRadius);
+                }
+                // Copy properties from original drawable to shapeDrawable
+                GradientDrawable original = (GradientDrawable) result;
+                shapeDrawable.setShape(shape.value);
+                if (cornersRadius != null) {
+                    shapeDrawable.setCornerRadius(cornersRadius);
+                }
+                if (cornersBottomLeftRadius != null && cornersBottomRightRadius != null &&
+                        cornersTopLeftRadius != null && cornersTopRightRadius != null) {
+                    float[] radii = new float[8];
+                    radii[0] = cornersTopLeftRadius;
+                    radii[1] = cornersTopLeftRadius;
+                    radii[2] = cornersTopRightRadius;
+                    radii[3] = cornersTopRightRadius;
+                    radii[4] = cornersBottomRightRadius;
+                    radii[5] = cornersBottomRightRadius;
+                    radii[6] = cornersBottomLeftRadius;
+                    radii[7] = cornersBottomLeftRadius;
+                    shapeDrawable.setCornerRadii(radii);
+                }
+                if (solidColor != null) {
+                    shapeDrawable.setColor(solidColor);
+                }
+                if (sizeWidth != null && sizeHeight != null) {
+                    shapeDrawable.setSize(sizeWidth.intValue(), sizeHeight.intValue());
+                }
+                if (strokeDashWidth > 0 && strokeDashGap > 0) {
+                    shapeDrawable.setStrokeDash(strokeDashWidth, strokeDashGap);
+                }
+                result = shapeDrawable;
+            }
 
             if(alpha != -1){
                 if(alpha >= 1){

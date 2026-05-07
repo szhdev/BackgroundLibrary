@@ -92,6 +92,12 @@
         <attr name="bl_stroke_dashWidth" format="dimension" />
         <attr name="bl_stroke_dashGap" format="dimension" />
 
+        <!-- 渐变描边 -->
+        <attr name="bl_stroke_gradient_startColor" format="color" />
+        <attr name="bl_stroke_gradient_centerColor" format="color" />
+        <attr name="bl_stroke_gradient_endColor" format="color" />
+        <attr name="bl_stroke_gradient_angle" format="integer" />
+
         <!-- 阴影相关属性 -->
         <attr name="bl_shadow_size" format="dimension" />
         <attr name="bl_shadow_color" format="color" />
