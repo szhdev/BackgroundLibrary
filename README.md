@@ -19,7 +19,7 @@ issue回复不及时，可以添加qq群887686934
     }
 
     implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation 'com.github.szhdev.BackgroundLibrary:library:v1.7.7'
+    implementation 'com.github.szhdev.BackgroundLibrary:library:v1.7.8'
 如果项目使用了androidx：  
 
     allprojects {
@@ -30,7 +30,7 @@ issue回复不及时，可以添加qq群887686934
     }
 
     implementation "androidx.appcompat:appcompat:$supportVersion" 
-    implementation 'com.github.szhdev.BackgroundLibrary:libraryx:v1.7.7'
+    implementation 'com.github.szhdev.BackgroundLibrary:libraryx:v1.7.8'
    
 
 ## 使用文档
