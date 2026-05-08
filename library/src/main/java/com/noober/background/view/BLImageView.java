@@ -306,33 +306,36 @@ public class BLImageView extends AppCompatImageView {
     /**
      * 代码动态设置圆形裁剪
      */
-    public void setClipOval() {
+    public BLImageView setClipOval() {
         this.blShape = GradientDrawable.OVAL;
         this.cornerRadius = 0;
         this.cornerRadii = null;
         setupClipDynamic();
+        return this;
     }
 
     /**
      * 代码动态设置圆角裁剪
      * @param radius 圆角半径（px）
      */
-    public void setClipCornerRadius(float radius) {
+    public BLImageView setClipCornerRadius(float radius) {
         this.blShape = GradientDrawable.RECTANGLE;
         this.cornerRadius = radius;
         this.cornerRadii = null;
         setupClipDynamic();
+        return this;
     }
 
     /**
      * 代码动态设置不规则四角圆角裁剪
      * @param radii 8个值的数组 [topLeftX, topLeftY, topRightX, topRightY, bottomRightX, bottomRightY, bottomLeftX, bottomLeftY]
      */
-    public void setClipCornerRadii(float[] radii) {
+    public BLImageView setClipCornerRadii(float[] radii) {
         this.blShape = GradientDrawable.RECTANGLE;
         this.cornerRadius = 0;
         this.cornerRadii = radii;
         setupClipDynamic();
+        return this;
     }
 
     /**
@@ -340,7 +343,7 @@ public class BLImageView extends AppCompatImageView {
      * @param width 边框宽度（px）
      * @param color 边框颜色
      */
-    public void setStroke(float width, int color) {
+    public BLImageView setStroke(int width, int color) {
         this.strokeWidth = width;
         this.strokeColor = color;
         this.strokeDashWidth = 0;
@@ -358,6 +361,7 @@ public class BLImageView extends AppCompatImageView {
         }
         refreshClipArea();
         invalidate();
+        return this;
     }
 
     /**
@@ -367,7 +371,7 @@ public class BLImageView extends AppCompatImageView {
      * @param dashWidth 虚线段宽度（px）
      * @param dashGap 虚线间隙（px）
      */
-    public void setStroke(float width, int color, float dashWidth, float dashGap) {
+    public BLImageView setStroke(int width, int color, int dashWidth, int dashGap) {
         this.strokeWidth = width;
         this.strokeColor = color;
         this.strokeDashWidth = dashWidth;
@@ -391,12 +395,13 @@ public class BLImageView extends AppCompatImageView {
         }
         refreshClipArea();
         invalidate();
+        return this;
     }
 
     /**
      * 清除裁剪效果
      */
-    public void clearClip() {
+    public BLImageView clearClip() {
         this.blShape = -1;
         this.cornerRadius = 0;
         this.cornerRadii = null;
@@ -407,6 +412,7 @@ public class BLImageView extends AppCompatImageView {
             setOutlineProvider(ViewOutlineProvider.BACKGROUND);
         }
         invalidate();
+        return this;
     }
 
     private void refreshClipArea() {
@@ -456,11 +462,12 @@ public class BLImageView extends AppCompatImageView {
     /**
      * 动态设置渐变描边
      */
-    public void setStrokeGradient(float width, int startColor, int endColor, int angle) {
+    public BLImageView setStrokeGradient(int width, int startColor, int endColor, int angle) {
         setStrokeGradient(width, startColor, 0, endColor, angle);
+        return this;
     }
 
-    public void setStrokeGradient(float width, int startColor, int centerColor, int endColor, int angle) {
+    public BLImageView setStrokeGradient(int width, int startColor, int centerColor, int endColor, int angle) {
         this.strokeWidth = width;
         this.strokeGradientStartColor = startColor;
         this.strokeGradientCenterColor = centerColor;
@@ -479,6 +486,7 @@ public class BLImageView extends AppCompatImageView {
 
         refreshClipArea();
         invalidate();
+        return this;
     }
 
     /**
@@ -490,8 +498,9 @@ public class BLImageView extends AppCompatImageView {
      * @param dashWidth 虚线段宽度（px）
      * @param dashGap 虚线间隙（px）
      */
-    public void setStrokeGradient(float width, int startColor, int endColor, int angle, float dashWidth, float dashGap) {
+    public BLImageView setStrokeGradient(int width, int startColor, int endColor, int angle, int dashWidth, int dashGap) {
         setStrokeGradient(width, startColor, 0, endColor, angle, dashWidth, dashGap);
+        return this;
     }
 
     /**
@@ -504,7 +513,7 @@ public class BLImageView extends AppCompatImageView {
      * @param dashWidth 虚线段宽度（px）
      * @param dashGap 虚线间隙（px）
      */
-    public void setStrokeGradient(float width, int startColor, int centerColor, int endColor, int angle, float dashWidth, float dashGap) {
+    public BLImageView setStrokeGradient(float width, int startColor, int centerColor, int endColor, int angle, int dashWidth, float dashGap) {
         this.strokeWidth = width;
         this.strokeGradientStartColor = startColor;
         this.strokeGradientCenterColor = centerColor;
@@ -529,5 +538,6 @@ public class BLImageView extends AppCompatImageView {
 
         refreshClipArea();
         invalidate();
+        return this;
     }
 }

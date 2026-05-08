@@ -907,7 +907,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/img00"
             app:bl_stroke_width="3dp"
-            app:bl_stroke_color="#E91E63"
             app:bl_shape="oval"
             app:bl_stroke_gradient_startColor="#E91E63"
             app:bl_stroke_gradient_centerColor="#9C27B0"
@@ -936,6 +935,15 @@
             android:scaleType="centerCrop"
             android:src="@drawable/img02"
             app:bl_corners_radius="60dp" />
-
+        <!-- 大圆角 ImageView -->
+        <com.noober.background.view.BLImageView
+            android:id="@+id/image"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img02"
+            app:bl_corners_radius="60dp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

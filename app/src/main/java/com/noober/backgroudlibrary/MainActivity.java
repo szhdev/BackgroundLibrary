@@ -16,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.noober.background.drawable.DrawableCreator;
+import com.noober.background.view.BLImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         }else {
             shapeTv.setBackgroundDrawable(shapeDrawable);
         }
+
+        BLImageView image =findViewById(R.id.image);
+        image.setStrokeGradient(dip2px(20), Color.parseColor("#E91E63"), Color.parseColor("#FFEB3B"), 45)
+                .setStroke(dip2px(2), Color.parseColor("#8c6822"))
+                .setClipCornerRadius(dip2px(20));
 
         Button btnTest3 = findViewById(R.id.btnTest3);
         Drawable drawable3 = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
