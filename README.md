@@ -19,7 +19,7 @@ issue回复不及时，可以添加qq群887686934
     }
 
     implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation 'com.github.szhdev.BackgroundLibrary:library:v1.7.8'
+    implementation 'com.github.szhdev.BackgroundLibrary:library:v1.8.0'
 如果项目使用了androidx：  
 
     allprojects {
@@ -30,7 +30,7 @@ issue回复不及时，可以添加qq群887686934
     }
 
     implementation "androidx.appcompat:appcompat:$supportVersion" 
-    implementation 'com.github.szhdev.BackgroundLibrary:libraryx:v1.7.8'
+    implementation 'com.github.szhdev.BackgroundLibrary:libraryx:v1.8.0'
    
 
 ## 使用文档
@@ -43,15 +43,13 @@ issue回复不及时，可以添加qq群887686934
 
 ## 示例效果
 阴影效果：
-<img width="415" height="1028" alt="IMG" src="https://github.com/user-attachments/assets/2114dac4-65e9-43a8-90fd-ef2d4c5a7c37" />
-
+<img width="346" height="857" alt="IMG" src="https://github.com/user-attachments/assets/2114dac4-65e9-43a8-90fd-ef2d4c5a7c37" />
 
 **使用方式不变**
 
 [BackgroundLibrary.xml](https://github.com/szhdev/BackgroundLibrary/blob/master/BackgroundLibrary.xml) 代码提示文件请及时更换
 1. xml中
-selector一样，但是只需要直接在xml中加入属性即可，例如
-
+   
         <TextView
             android:layout_width="200dp"
             android:layout_height="60dp"
@@ -65,7 +63,6 @@ selector一样，但是只需要直接在xml中加入属性即可，例如
             app:bl_shadow_offsetY="6dp"
             app:bl_shadow_size="10dp"
             app:bl_solid_color="#2196F3" />
-
 
 2. 代码中
    
@@ -82,7 +79,59 @@ selector一样，但是只需要直接在xml中加入属性即可，例如
             shapeTv.setBackgroundDrawable(shapeDrawable);
         }
 
+渐变圆角效果：
+<img width="346" height="627" alt="IMG" src="https://github.com/user-attachments/assets/769a6de4-98ca-4193-8d4c-fec3e0e6e683" />
+ 1. xml中
+
+        <com.noober.background.view.BLImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img00"
+            app:bl_stroke_width="3dp"
+            app:bl_shape="oval"
+            app:bl_stroke_gradient_startColor="#E91E63"
+            app:bl_stroke_gradient_centerColor="#9C27B0"
+            app:bl_stroke_gradient_endColor="#FFEB3B"
+            app:bl_stroke_gradient_angle="0"/>
+
+2. 代码中
    
+        TextView shapeTv = findViewById(R.id.tv_shape);
+        Drawable shapeDrawable = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
+                .setSolidColor(ContextCompat.getColor(this,R.color.colorAccent))
+                .setStrokeWidth(dip2px(2))
+                .setStrokeGradient(Color.parseColor("#E91E63"),Color.parseColor("#FFEB3B"),45)
+                .setStrokeDashWidth(dip2px(10))
+                .setStrokeDashGap(dip2px(5))
+                .setShadow(dip2px(10), Color.parseColor("#2196F3"), dip2px(10), dip2px(10))
+                .build();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+            shapeTv.setBackground(shapeDrawable);
+        }else {
+            shapeTv.setBackgroundDrawable(shapeDrawable);
+        }
+ **提示：图片设置只能使用BlImageView设置 图片app:bl_shape只支持oval 也可以通过app:bl_corners_radius设置**
+ 
+  <!-- 圆形 ImageView -->
+        <com.noober.background.view.BLImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img00"
+            app:bl_stroke_width="2dp"
+            app:bl_shape="oval" //app:bl_corners_radius="20dp"
+            app:bl_stroke_gradient_startColor="#E91E63"
+            app:bl_stroke_gradient_centerColor="#9C27B0"
+            app:bl_stroke_gradient_endColor="#FFEB3B"
+            app:bl_stroke_gradient_angle="45"/>
+
+            BLImageView image =findViewById(R.id.image);
+            image.setStrokeGradient(dip2px(20), Color.parseColor("#E91E63"), Color.parseColor("#FFEB3B"), 45)
+                .setStroke(dip2px(2), Color.parseColor("#8c6822"))
+                .setClipCornerRadius(dip2px(20));
    
 ![](https://raw.githubusercontent.com/JavaNoober/BackgroundLibrary/master/test/show.gif)
 
