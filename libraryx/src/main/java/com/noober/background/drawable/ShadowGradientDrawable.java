@@ -4,11 +4,15 @@ import android.content.res.ColorStateList;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 
@@ -39,6 +43,62 @@ public class ShadowGradientDrawable extends GradientDrawable {
     // Cached BlurMaskFilter, rebuilt only when shadowRadius changes
     private BlurMaskFilter cachedBlurMaskFilter;
     private float cachedShadowRadius = -1f;
+
+    // 渐变描边相关字段
+    private float gradientStrokeWidth;
+    private int gradientStrokeStartColor;
+    private int gradientStrokeCenterColor;
+    private int gradientStrokeEndColor;
+    private int gradientStrokeAngle;
+    private Paint gradientStrokePaint;
+    private boolean hasGradientStroke = false;
+    private int blShape = RECTANGLE;
+    private float blCornerRadius;
+    private float[] blCornerRadii;
+    private final RectF gradientStrokeRect = new RectF();
+    private LinearGradient cachedGradientShader;
+    private int cachedGradientWidth = -1;
+    private int cachedGradientHeight = -1;
+
+    /**
+     * 设置渐变描边参数
+     */
+    public void setStrokeGradient(int strokeWidth, int startColor, int centerColor, int endColor, int angle) {
+        this.gradientStrokeWidth = strokeWidth;
+        this.gradientStrokeStartColor = startColor;
+        this.gradientStrokeCenterColor = centerColor;
+        this.gradientStrokeEndColor = endColor;
+        this.gradientStrokeAngle = angle;
+        this.hasGradientStroke = true;
+
+        if (gradientStrokePaint == null) {
+            gradientStrokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            gradientStrokePaint.setStyle(Paint.Style.STROKE);
+        }
+        gradientStrokePaint.setStrokeWidth(strokeWidth);
+    }
+
+    /**
+     * 设置虚线效果
+     */
+    public void setStrokeDash(float dashWidth, float dashGap) {
+        if (dashWidth > 0 && dashGap > 0 && gradientStrokePaint != null) {
+            gradientStrokePaint.setPathEffect(new DashPathEffect(
+                    new float[]{dashWidth, dashGap}, 0));
+        }
+    }
+
+    public void setBlShape(int shape) {
+        this.blShape = shape;
+    }
+
+    public void setBlCornerRadius(float radius) {
+        this.blCornerRadius = radius;
+    }
+
+    public void setBlCornerRadii(float[] radii) {
+        this.blCornerRadii = radii;
+    }
 
     public void setShadow(float radius, float dx, float dy, int color) {
         if (this.shadowRadius != radius) {
@@ -201,9 +261,84 @@ public class ShadowGradientDrawable extends GradientDrawable {
             super.draw(canvas);
             setBounds(originalBounds);
 
+            // 在阴影模式下绘制渐变描边（使用 insetBounds 作为参考）
+            if (hasGradientStroke) {
+                drawGradientStroke(canvas, insetBounds);
+            }
+
             canvas.restore();
         } else {
             super.draw(canvas);
+            // 非阴影模式下绘制渐变描边
+            if (hasGradientStroke) {
+                drawGradientStroke(canvas, getBounds());
+            }
+        }
+    }
+
+    /**
+     * 绘制渐变描边（参考 BLShapeDrawable 实现）
+     */
+    private void drawGradientStroke(Canvas canvas, Rect bounds) {
+        int width = bounds.width();
+        int height = bounds.height();
+
+        if (width <= 0 || height <= 0) return;
+
+        // 更新 Shader 缓存
+        if (cachedGradientShader == null || width != cachedGradientWidth || height != cachedGradientHeight) {
+            cachedGradientShader = createGradientShader(bounds);
+            cachedGradientWidth = width;
+            cachedGradientHeight = height;
+            gradientStrokePaint.setShader(cachedGradientShader);
+        }
+
+        // 描边路径内缩 strokeWidth/2
+        float inset = gradientStrokeWidth / 2f;
+        gradientStrokeRect.set(bounds.left + inset, bounds.top + inset,
+                bounds.right - inset, bounds.bottom - inset);
+
+        switch (blShape) {
+            case OVAL:
+                canvas.drawOval(gradientStrokeRect, gradientStrokePaint);
+                break;
+            case RECTANGLE:
+            default:
+                if (blCornerRadii != null) {
+                    Path path = new Path();
+                    path.addRoundRect(gradientStrokeRect, blCornerRadii, Path.Direction.CW);
+                    canvas.drawPath(path, gradientStrokePaint);
+                } else if (blCornerRadius > 0) {
+                    float rx = Math.max(0, blCornerRadius);
+                    canvas.drawRoundRect(gradientStrokeRect, rx, rx, gradientStrokePaint);
+                } else {
+                    canvas.drawRect(gradientStrokeRect, gradientStrokePaint);
+                }
+                break;
+        }
+    }
+
+    private LinearGradient createGradientShader(Rect bounds) {
+        float centerX = bounds.exactCenterX();
+        float centerY = bounds.exactCenterY();
+        float halfWidth = bounds.width() / 2f;
+        float halfHeight = bounds.height() / 2f;
+
+        double angleRad = Math.toRadians(gradientStrokeAngle);
+        float x0 = (float) (centerX - halfWidth * Math.cos(angleRad));
+        float y0 = (float) (centerY + halfHeight * Math.sin(angleRad));
+        float x1 = (float) (centerX + halfWidth * Math.cos(angleRad));
+        float y1 = (float) (centerY - halfHeight * Math.sin(angleRad));
+
+        if (gradientStrokeCenterColor != 0) {
+            return new LinearGradient(x0, y0, x1, y1,
+                    new int[]{gradientStrokeStartColor, gradientStrokeCenterColor, gradientStrokeEndColor},
+                    new float[]{0f, 0.5f, 1f},
+                    Shader.TileMode.CLAMP);
+        } else {
+            return new LinearGradient(x0, y0, x1, y1,
+                    gradientStrokeStartColor, gradientStrokeEndColor,
+                    Shader.TileMode.CLAMP);
         }
     }
 

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.noober.background.drawable.DrawableCreator;
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
@@ -21,7 +22,7 @@ public class MainActivity extends RxAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.btn);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -30,6 +31,19 @@ public class MainActivity extends RxAppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ListActivity.class));
             }
         });
+
+        TextView shapeTv = findViewById(R.id.tv_shadow);
+        Drawable shapeDrawable = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
+//                .setSolidColor(Color.parseColor("#FF4081"))
+                .setSolidColor(ContextCompat.getColor(this, R.color.colorAccent))
+                .setStrokeColor(Color.parseColor("#4CAF50"))
+                .setStrokeWidth(dip2px(2))
+                .setStrokeGradient(Color.parseColor("#E91E63"), Color.parseColor("#FFEB3B"), 45)
+                .setStrokeDashWidth(dip2px(10))
+                .setStrokeDashGap(dip2px(5))
+                .setShadow(dip2px(10), Color.parseColor("#2196F3"), dip2px(10), dip2px(10))
+                .build();
+        shapeTv.setBackground(shapeDrawable);
 
 //        AnimationDrawable animationDrawable = (AnimationDrawable) vAnim.getBackground();
 //        animationDrawable.start();
@@ -47,9 +61,9 @@ public class MainActivity extends RxAppCompatActivity {
         Button btnTest2 = findViewById(R.id.btnTest2);
         Drawable drawable2 = new DrawableCreator.Builder().setCornersRadius(dip2px(20))
                 .setGradientAngle(0).setGradientColor(Color.parseColor("#63B8FF"), Color.parseColor("#4F94CD")).build();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             btnTest2.setBackground(drawable2);
-        }else {
+        } else {
             btnTest2.setBackgroundDrawable(drawable2);
         }
 
@@ -61,9 +75,9 @@ public class MainActivity extends RxAppCompatActivity {
                 .setStrokeColor(Color.parseColor("#8c6822"))
                 .setStrokeWidth(dip2px(2))
                 .build();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             btnTest3.setBackground(drawable3);
-        }else {
+        } else {
             btnTest3.setBackgroundDrawable(drawable3);
         }
 
@@ -86,10 +100,10 @@ public class MainActivity extends RxAppCompatActivity {
         btnEnable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tvMulti.isEnabled()){
+                if (tvMulti.isEnabled()) {
                     tvMulti.setEnabled(false);
                     tvMulti.setText("textView一条属性多个状态：enable=false");
-                }else {
+                } else {
                     tvMulti.setEnabled(true);
                     tvMulti.setText("textView一条属性多个状态：enable=true");
                 }
@@ -101,7 +115,7 @@ public class MainActivity extends RxAppCompatActivity {
 
     public int dip2px(float dipValue) {
         float scale = getResources().getDisplayMetrics().density;
-        return (int)(dipValue * scale + 0.5F);
+        return (int) (dipValue * scale + 0.5F);
     }
 
 }

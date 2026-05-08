@@ -637,11 +637,12 @@ public class DrawableCreator {
             // Handle stroke gradient
             boolean hasStrokeGradient = strokeGradientStartColor != 0 && strokeGradientEndColor != 0
                     && strokeWidth != null && strokeWidth > 0;
-            if (hasStrokeGradient && result instanceof GradientDrawable) {
-                BLShapeDrawable shapeDrawable = new BLShapeDrawable();
-                shapeDrawable.setStrokeGradient(strokeWidth, strokeGradientStartColor,
+            if (hasStrokeGradient && result instanceof ShadowGradientDrawable) {
+                // 阴影 + 渐变描边共存 或 仅渐变描边
+                ShadowGradientDrawable shadowDrawable = (ShadowGradientDrawable) result;
+                shadowDrawable.setStrokeGradient(strokeWidth.intValue(), strokeGradientStartColor,
                         strokeGradientCenterColor, strokeGradientEndColor, strokeGradientAngle);
-                shapeDrawable.setBlShape(shape.value);
+                shadowDrawable.setBlShape(shape.value);
                 if (cornersBottomLeftRadius != null && cornersBottomRightRadius != null &&
                         cornersTopLeftRadius != null && cornersTopRightRadius != null) {
                     float[] radii = new float[8];
@@ -653,39 +654,13 @@ public class DrawableCreator {
                     radii[5] = cornersBottomRightRadius;
                     radii[6] = cornersBottomLeftRadius;
                     radii[7] = cornersBottomLeftRadius;
-                    shapeDrawable.setBlCornerRadii(radii);
+                    shadowDrawable.setBlCornerRadii(radii);
                 } else if (cornersRadius != null && cornersRadius > 0) {
-                    shapeDrawable.setBlCornerRadius(cornersRadius);
-                }
-                // Copy properties from original drawable to shapeDrawable
-                GradientDrawable original = (GradientDrawable) result;
-                shapeDrawable.setShape(shape.value);
-                if (cornersRadius != null) {
-                    shapeDrawable.setCornerRadius(cornersRadius);
-                }
-                if (cornersBottomLeftRadius != null && cornersBottomRightRadius != null &&
-                        cornersTopLeftRadius != null && cornersTopRightRadius != null) {
-                    float[] radii = new float[8];
-                    radii[0] = cornersTopLeftRadius;
-                    radii[1] = cornersTopLeftRadius;
-                    radii[2] = cornersTopRightRadius;
-                    radii[3] = cornersTopRightRadius;
-                    radii[4] = cornersBottomRightRadius;
-                    radii[5] = cornersBottomRightRadius;
-                    radii[6] = cornersBottomLeftRadius;
-                    radii[7] = cornersBottomLeftRadius;
-                    shapeDrawable.setCornerRadii(radii);
-                }
-                if (solidColor != null) {
-                    shapeDrawable.setColor(solidColor);
-                }
-                if (sizeWidth != null && sizeHeight != null) {
-                    shapeDrawable.setSize(sizeWidth.intValue(), sizeHeight.intValue());
+                    shadowDrawable.setBlCornerRadius(cornersRadius);
                 }
                 if (strokeDashWidth > 0 && strokeDashGap > 0) {
-                    shapeDrawable.setStrokeDash(strokeDashWidth, strokeDashGap);
+                    shadowDrawable.setStrokeDash(strokeDashWidth, strokeDashGap);
                 }
-                result = shapeDrawable;
             }
 
             if(alpha != -1){
@@ -848,7 +823,9 @@ public class DrawableCreator {
         private GradientDrawable getGradientDrawable() {
             GradientDrawable drawable = baseGradientDrawable;
             if (drawable == null) {
-                if (shadowSize != null && shadowSize > 0) {
+                if (shadowSize != null && shadowSize > 0
+                        || (strokeGradientStartColor != 0 && strokeGradientEndColor != 0
+                        && strokeWidth != null && strokeWidth > 0)) {
                     drawable = new ShadowGradientDrawable();
                 } else {
                     drawable = new GradientDrawable();

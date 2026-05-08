@@ -9,7 +9,6 @@ import android.os.Build;
 import androidx.annotation.AttrRes;
 
 import com.noober.background.R;
-import com.noober.background.drawable.BLShapeDrawable;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -639,13 +638,12 @@ public class GradientDrawableCreator implements ICreateDrawable {
         }
         boolean hasStrokeGradient = strokeGradientStartColor != 0 && strokeGradientEndColor != 0 && strokeWidth > 0;
 
-        if (hasShadow) {
+        if (hasShadow || hasStrokeGradient) {
             ShadowGradientDrawable shadowDrawable = new ShadowGradientDrawable();
-            shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
+            if (hasShadow) {
+                shadowDrawable.setShadow(shadowSize, shadowOffsetX, shadowOffsetY, shadowColor);
+            }
             drawable = shadowDrawable;
-        } else if (hasStrokeGradient) {
-            BLShapeDrawable shapeDrawable = new BLShapeDrawable();
-            drawable = shapeDrawable;
         } else {
             drawable = new GradientDrawable();
         }
@@ -858,16 +856,16 @@ public class GradientDrawableCreator implements ICreateDrawable {
         }
 
         // configure stroke gradient if applicable
-        if (hasStrokeGradient && drawable instanceof BLShapeDrawable) {
-            BLShapeDrawable blDrawable = (BLShapeDrawable) drawable;
-            blDrawable.setStrokeGradient((int) strokeWidth, strokeGradientStartColor,
+        if (hasStrokeGradient && drawable instanceof ShadowGradientDrawable) {
+            ShadowGradientDrawable shadowDrawable = (ShadowGradientDrawable) drawable;
+            shadowDrawable.setStrokeGradient((int) strokeWidth, strokeGradientStartColor,
                     strokeGradientCenterColor, strokeGradientEndColor, strokeGradientAngle);
-            blDrawable.setBlShape(shape);
+            shadowDrawable.setBlShape(shape);
             if (hasSetRadius(cornerRadius)) {
-                blDrawable.setBlCornerRadii(cornerRadius);
+                shadowDrawable.setBlCornerRadii(cornerRadius);
             }
             if (strokeDashWidth > 0 && strokeGap > 0) {
-                blDrawable.setStrokeDash(strokeDashWidth, strokeGap);
+                shadowDrawable.setStrokeDash(strokeDashWidth, strokeGap);
             }
         }
 

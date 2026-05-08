@@ -14,12 +14,29 @@
         tools:ignore="MissingPrefix,HardcodedText">
 
         <TextView
+            android:id="@+id/tv_shadow"
             android:layout_width="wrap_content"
-            android:text="dasdasdads"
-            app:bl_text_gradient_orientation="horizontal"
-            app:bl_text_gradient_startColor="@color/colorAccent"
-            app:bl_text_gradient_endColor="@android:color/holo_green_dark"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="代码中设置阴影效果"
+            android:textColor="@android:color/white" />
+
+        <!-- 圆形 ImageView -->
+        <com.noober.background.view.BLImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round"
+            app:bl_stroke_width="3dp"
+            app:bl_stroke_color="#E91E63"
+            app:bl_shape="oval"
+            app:bl_stroke_gradient_startColor="#E91E63"
+            app:bl_stroke_gradient_centerColor="#9C27B0"
+            app:bl_stroke_gradient_endColor="#FFEB3B"
+            app:bl_stroke_gradient_angle="0"/>
+
 
         <com.noober.background.view.BLTextView
             android:layout_width="match_parent"

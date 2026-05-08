@@ -74,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
 //                .setSolidColor(Color.parseColor("#FF4081"))
                 .setSolidColor(ContextCompat.getColor(this,R.color.colorAccent))
                 .setStrokeColor(Color.parseColor("#4CAF50"))
-                .setStrokeWidth(dip2px(1))
+                .setStrokeWidth(dip2px(2))
+                .setStrokeGradient(Color.parseColor("#E91E63"),Color.parseColor("#FFEB3B"),45)
+                .setStrokeDashWidth(dip2px(10))
+                .setStrokeDashGap(dip2px(5))
                 .setShadow(dip2px(10), Color.parseColor("#2196F3"), dip2px(10), dip2px(10))
                 .build();
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
